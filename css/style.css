@@ -1442,7 +1442,7 @@ body {
   color: #1e3e3f;
   padding: 0;
   margin: 0;
-  overflow-x: hidden;
+  overflow: hidden;
   text-size-adjust: 100%;
 }
 body ::selection {
@@ -2563,6 +2563,7 @@ pre .javascript .function {
 }
 .navbar-bottom {
   position: absolute;
+  padding-top: 0;
   width: 100%;
 }
 .logo {
