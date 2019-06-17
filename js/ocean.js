@@ -188,6 +188,7 @@
     if (isMobileNavAnim) return;
     startMobileNavAnim();
     $content.toggleClass('on');
+    $(".video-overlay").toggleClass('o2jra')
     $(".video-media").toggleClass('o2jra')
     $sidebar.toggleClass('on');
     stopMobileNavAnim();
@@ -195,6 +196,7 @@
 
   $($content).on('click', function () {
     if (isMobileNavAnim || !$content.hasClass('on')) return;
+    $(".video-overlay").removeClass('o2jra')
     $(".video-media").removeClass('o2jra')
     $content.removeClass('on');
     $sidebar.removeClass('on');
