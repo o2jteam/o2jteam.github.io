@@ -1612,7 +1612,6 @@ img {
 .sidebar.on {
   left: 0;
   overflow-x: hidden;
-  overflow-y: scroll;
 }
 .navbar-toggle {
   position: absolute;
@@ -2697,7 +2696,7 @@ pre .javascript .function {
   background-color: #ea434a;
   content: "";
 }
-@media (max-width: 676px) {
+@media (max-width: 768px) {
   .sidebar {
     background: transparent;
   }
