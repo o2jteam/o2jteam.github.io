@@ -1414,7 +1414,6 @@ template {
 *::before,
 *::after {
   box-sizing: border-box;
-  -webkit-overflow-scrolling: touch;
 }
 html,
 body {
@@ -1590,6 +1589,7 @@ img {
   background: #fff;
   position: relative;
   margin-right: 0;
+  -webkit-overflow-scrolling: touch;
 }
 .content.on {
   -webkit-border-radius: 0.85rem;
