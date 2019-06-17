@@ -2696,6 +2696,7 @@ pre .javascript .function {
   overflow: hidden;
   background: #607d8b linear-gradient(to bottom, #607d8b 0%, #26323b 100%);
   height: 100vh;
+  width: 100vw;
 }
 .o2jmr {
   margin: 5rem 0;
@@ -2721,6 +2722,12 @@ pre .javascript .function {
 .logo a {
   color: #fff;
 }
+.o2jnotice {
+  position: absolute;
+  top: 5rem;
+  width: 100%;
+  text: content;
+}
 @media (max-width: 768px) {
   .sidebar {
     background: transparent;
@@ -2729,7 +2736,7 @@ pre .javascript .function {
     position: fixed;
   }
   .content {
-    height: 100vh;
+    height: 100%;
     width: 100vw;
   }
   .o2jwrap {
