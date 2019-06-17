@@ -163,6 +163,17 @@
     });
   })(jQuery);
 
+
+  // $('#o2jmd').click(function () {
+  //   console.log('ss')
+  //   console.log($($.attr(this, 'href')).offset().top)
+  //   $('html, body').animate({
+  //     scrollTop: $($.attr(this, 'href')).offset().top
+  //   }, 10);
+  //   return true;
+  // });
+
+
   // Mobile nav
   var $content = $('.content'),
     $sidebar = $('.sidebar'),
