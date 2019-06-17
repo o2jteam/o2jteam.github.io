@@ -1410,14 +1410,6 @@ template {
     }
 }
 }
-@font-face {
-    font-family: "Josefin Sans";
-    src: url("feathericon/JosefinSans.ttf");
-}
-
-body {
-    font-family: "Josefin Sans" !important
-}
 *,
 *::before,
 *::after {
