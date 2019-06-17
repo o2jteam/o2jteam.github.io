@@ -1651,7 +1651,7 @@ img {
 .navbar .nav .nav-item-link {
   color: #fff;
 }
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
   .jumbotron {
     margin-bottom: 6rem;
   }
@@ -2728,7 +2728,7 @@ pre .javascript .function {
   width: 100%;
   text: content;
 }
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
   .sidebar {
     background: transparent;
   }
