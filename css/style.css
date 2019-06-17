@@ -1576,7 +1576,6 @@ img {
 }
 .jumbotron {
   padding: 0;
-  z-index: 2;
   margin-bottom: 3rem;
   text-align: center;
 }
@@ -1592,6 +1591,7 @@ img {
   -webkit-overflow-scrolling: touch;
 }
 .content.on {
+  z-index: 2;
   -webkit-border-radius: 0.85rem;
   -moz-border-radius: 0.85rem;
   border-radius: 0.85rem;
@@ -2736,11 +2736,7 @@ pre .javascript .function {
 }
 @media (max-width: 1200px) {
   .o2jbox {
-    z-index: 2;
     height: 100%;
-    -webkit-border-radius: 0.85rem;
-    -moz-border-radius: 0.85rem;
-    border-radius: 0.85rem;
   }
   .sidebar {
     background: transparent;
