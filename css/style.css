@@ -2734,6 +2734,12 @@ pre .javascript .function {
   text: content;
 }
 @media (max-width: 1200px) {
+  .o2jbox {
+    z-index: 2;
+    -webkit-border-radius: 0.85rem;
+    -moz-border-radius: 0.85rem;
+    border-radius: 0.85rem;
+  }
   .sidebar {
     background: transparent;
   }
