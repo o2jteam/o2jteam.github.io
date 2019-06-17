@@ -1607,6 +1607,7 @@ img {
   bottom: 0;
   width: 20rem;
   background-color: #f4f4f4;
+  -webkit-overflow-scrolling: touch;
 }
 .sidebar.on {
   left: 0;
@@ -1675,6 +1676,7 @@ img {
   .sidebar {
     left: 0;
     background-color: transparent;
+    -webkit-overflow-scrolling: touch;
   }
   .navbar-toggle {
     display: none;

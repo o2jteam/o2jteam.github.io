@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  
+    <meta name="keywords" content="前端团队,o2jteam前端团队,obj前端团队,北京世新天成科技有限公司,北京星辉光迅科技有限公司">
+  
+  
+    <meta name="description" content="obj前端团队门户网站">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>
+    Node.js介绍和安装 |
+    
+    obj前端团队</title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+  
+  <script src="/js/pace.min.js"></script>
+</head>
+</html>
+
+<body>
+  <div class="o2jwrap">
+    <main class="content">
+      <div class="o2jbox">
+        <section class="outer">
+  <article id="post-node.js usage" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      Node.js介绍和安装
+    </h1>
+  
+
+      <!-- 目录内容 -->
+      
+      <!-- 目录内容结束 -->
+    </header>
+    
+
+    
+    <div class="article-meta">
+      
+      <a href="/post/node.js usage/" class="article-date">
+  <time datetime="2018-01-25T02:31:24.000Z" itemprop="datePublished">2018-01-25</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/工具箱/">工具箱</a>
+  </div>
+
+    </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+      <p>生活不只是眼前的苟且，还有诗和远方。</p>
+<h3 id="Node-js简介"><a href="#Node-js简介" class="headerlink" title="Node.js简介"></a>Node.js简介</h3><h4 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h4><p><strong>Node.js</strong>是一个能够在服务器端运行JavaScript的开放源代码、跨平台<strong>JavaScript运行环境</strong>。采用Google开发的<strong>V8引擎</strong>运行js代码，使用<strong>事件驱动、非阻塞和异步I/O模型</strong>等技术来提高性能，可优化应用程序的传输量和规模。大部分基本模块都用JavaScript编写。在Node出现之前，JS通常作为客户端程序设计语言使用，以JS写出的程序常在用户的浏览器上运行。</p>
+<p>目前，Node.js已被IBM、Microsoft、Yahoo!、Walmart、Groupon、SAP、 LinkedIn、Rakuten、PayPal、Voxer和GoDaddy等企业采用。</p>
+<a id="more"></a>
+<p><strong>Node</strong>主要用于编写像Web服务器一样的网络应用，这和PHP和Python是类似的。但是Node与其他语言最大的不同之处在于，PHP等语言是阻塞的而Node是非阻塞的。Node是事件驱动的，开发者可以在不使用线程的情况下开发出一个能够承载高并发的服务器。其他服务器端语言难以开发高并发应用，而且即使开发出来，性能也不尽人意。</p>
+<h4 id="创始人"><a href="#创始人" class="headerlink" title="创始人"></a>创始人</h4><p><strong>瑞安·达尔（Ryan Dahl）</strong><br><img src="https://www.itsolotime.com/images/node/node-21.png" alt><br>Ryan Dahl并非科班出身的开发者，在2004年的时候他还在纽约的罗彻斯特大学数学系读博士。</p>
+<p>2006年，也许是厌倦了读博的无聊，他产生了『世界那么大，我想去看看』的念头，做出了退学的决定，然后一个人来到智利的Valparaiso小镇。</p>
+<p>从那起，Ryan Dahl不知道是否因为生活的关系，他开始学习网站开发了，走上了“码农”的道路。</p>
+<p>那时候Ruby on Rails很火，他也不例外的学习了它。</p>
+<p>从那时候开始，Ryan Dahl的生活方式就是接项目，然后去客户的地方工作，在他眼中，拿工资和上班其实就是去那里旅行。</p>
+<p>Ryan Dahl经过两年的工作后，成为了高性能Web服务器的专家，从接开发应用到变成专门帮客户解决性能问题的专家。</p>
+<p>期间他开始写一些开源项目帮助客户解决Web服务器的高并发性能问题，他尝试了很多种语言，但是最终都失败了。<br>在他快绝望的时候，V8引擎来了。V8满足他关于高性能Web服务器的想象。于是在2009年2月它开始着手编写Node.js</p>
+<h4 id="Node-js历史"><a href="#Node-js历史" class="headerlink" title="Node.js历史"></a>Node.js历史</h4><p><img src="https://www.itsolotime.com/images/node/node-01.png" alt></p>
+<p><strong><a href="http://www.infoq.com/cn/articles/node-js-and-io-js/" target="_blank" rel="noopener">荐读：Node.js与io.js那些事儿</a></strong></p>
+<h4 id="Node-js用途"><a href="#Node-js用途" class="headerlink" title="Node.js用途"></a>Node.js用途</h4><ul>
+<li><p>Web服务API，比如REST</p>
+</li>
+<li><p>实时多人游戏</p>
+</li>
+<li><p>后端的Web服务，例如跨域、服务器端的请求</p>
+</li>
+<li><p>基于Web的应用</p>
+</li>
+<li><p>多客户端的通信，如即时通信</p>
+</li>
+</ul>
+<h4 id="Node-js官网"><a href="#Node-js官网" class="headerlink" title="Node.js官网"></a>Node.js官网</h4><p>英文官网（访问需“翻墙”）：<a href="https://nodejs.org" target="_blank" rel="noopener">https://nodejs.org</a><br>中文官网：<a href="http://nodejs.cn/" target="_blank" rel="noopener">http://nodejs.cn/</a></p>
+<h3 id="Node-JS的安装"><a href="#Node-JS的安装" class="headerlink" title="Node.JS的安装"></a>Node.JS的安装</h3><h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><p><img src="https://www.itsolotime.com/images/node/node-02.png" alt></p>
+<p>官方下载地址：<a href="http://nodejs.cn/download/" target="_blank" rel="noopener">http://nodejs.cn/download/</a><br><em>需要注意的是：版本号为偶数开头，即为稳定版本。版本号为奇数开头，即为开发版本。一般情况下，我们使用“稳定版”</em></p>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>1、双击安装包，点击下一步。<br><img src="https://www.itsolotime.com/images/node/node-03.png" alt><br><img src="https://www.itsolotime.com/images/node/node-05.png" alt></p>
+<p>2、同意安装协议，选择安装目录。<em>（安装目录可以更改，这里建议安装目录尽量不要有中文）</em><br><img src="https://www.itsolotime.com/images/node/node-05.png" alt><br><img src="https://www.itsolotime.com/images/node/node-06.png" alt></p>
+<p>3、选择功能插件，建议默认全部安装，点击下一步。<br><img src="https://www.itsolotime.com/images/node/node-07.png" alt><br>4、安装完成。<br><img src="https://www.itsolotime.com/images/node/node-08.png" alt><br><img src="https://www.itsolotime.com/images/node/node-09.png" alt><br><img src="https://www.itsolotime.com/images/node/node-10.png" alt></p>
+<p>5、查看是否安装成功：<br>-win7&amp;win10用户：打开“cmd”窗口，输入:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://www.itsolotime.com/images/node/node-12.png" alt><br>若有版本号输出，即为安装正确。</p>
+<p>-“cmd”命令窗口打开的方法：<br>快捷键：windows键（<em>键盘空格左边第二个键</em>）+ R  打开“运行”窗口，输入“cmd”确定即可打开。</p>
+<p>目录打开：<br>win7用户：点击“开始菜单”，查找“windows附件” - cmd命令窗口<br>win10用户：点击“开始菜单”，查找“windows系统” - cmd命令窗口<br><img src="https://www.itsolotime.com/images/node/node-11.png" alt><br><img src="https://www.itsolotime.com/images/node/node-14.png" alt><br>6、node.js目录结构<br><img src="https://www.itsolotime.com/images/node/node-13.png" alt></p>
+<h4 id="环境变量配置"><a href="#环境变量配置" class="headerlink" title="环境变量配置"></a>环境变量配置</h4><p>一般情况下，在安装node.js时，软件会自动的对“环境变量”进行配置。如果软件并未自动配置“环境变量”，在命令窗口中输入命令无法正常获取版本号，这时候，就需要我们手动来配置一下。</p>
+<p>1、找到node.js安装目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">E:\nodejs</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://www.itsolotime.com/images/node/node-16.png" alt><br>2、右键“我的电脑”，打开“属性”面板/win10用户打开“此电脑（改名的打开自己的名字）”<br><img src="https://www.itsolotime.com/images/node/node-17.png" alt><br>3、打开高级系统设置中的环境变量</p>
+<p>-<em>也可以打开“控制面板” - “系统和安全”  - “系统” - “高级系统设置 - “环境变量”</em></p>
+<p>4、找到系统变量里的“path”，然后“编辑”-“添加”。<br>-win10用户是列表，直接“双击列表空白行”，将node.js安装目录输入进去，点击确定即可。</p>
+<p>-win7用户是“单行”，直接在内容的末尾添加“E:\nodejs;” <font color="red"><em>注意：一定要添加末尾的 ; 且为英文的 ;</em></font><br><img src="https://www.itsolotime.com/images/node/node-18.png" alt><br><img src="https://www.itsolotime.com/images/node/node-19.png" alt><br>-如果你的“环境变量”中没有”Path”这个变量，直接自己新建一个即可。<br><img src="https://www.itsolotime.com/images/node/node-20.png" alt><br>-如果“path”变量中已经设置很多值，一定注意不要“误删减”。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;%USERPROFILE%\AppData\Local\Microsoft\WindowsApps;F:\AppServ\Apache24\bin;F:\AppServ\php5;F:\AppServ\MySQL\bin;C:\Users\Zero\AppData\Roaming\npm;C:\Program Files\MongoDB\Server\3.2\bin;E:\nodejs</span><br></pre></td></tr></table></figure>
+
+<p>5、在cmd中再次输入正常即可。</p>
+<h2 id="联系小泊"><a href="#联系小泊" class="headerlink" title="联系小泊"></a>联系小泊</h2><p>email：<a href="mailto:643209899@qq.com" target="_blank" rel="noopener">643209899@qq.com</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://o2jteam.github.io/post/node.js usage/" data-id="cjx0cvjkr0012y8ve3gsctm75" class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node-js/">Node.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/原创/">原创</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/系统环境变量配置/">系统环境变量配置</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+  
+  <nav class="article-nav">
+    
+      <a href="/post/mongoDB usage/" class="article-nav-link">
+        <strong class="article-nav-caption">Newer posts</strong>
+        <div class="article-nav-title">
+          
+            MongoDB的安装
+          
+        </div>
+      </a>
+    
+    
+      <a href="/post/linux route/" class="article-nav-link">
+        <strong class="article-nav-caption">Olde posts</strong>
+        <div class="article-nav-title">linux软路由设置</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+  
+  
+
+</article>
+</section>
+        <footer class="footer">
+  
+  <div class="outer">
+    <!-- <div class="float-right">
+      <ul class="list-inline">
+  
+    <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+</ul>
+    </div> -->
+    <ul class="list-inline">
+      <li>&copy; 2019 o2jteam</li>
+      <li>  <a href="https://o2jteam.github.io/" target="_blank">obj前端团队</a> 提供技术支持</li>
+    </ul>
+  </div>
+</footer>
+
+      </div>
+    </main>
+    <aside class="sidebar">
+      <button class="navbar-toggle"></button>
+
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="https://avatars2.githubusercontent.com/u/50328824?s=200&v=4" alt="obj前端团队"></a>
+    <p class="o2jname">
+      <a href="/">o2jteam</a>
+    </p>
+    <!-- <p>生活虽不易，未来亦可期。</p> -->
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">首页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">专题</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/gallery">设计</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="Search">
+        <i class="fe fe-search"></i>
+        Search
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+    <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="fe fe-feed"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/lazyload.min.js"></script>
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+  <script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+  <script src="/js/search.js"></script>
+
+
+<script src="/js/ocean.js"></script>
+
+  </div>
+
+</body>
+
+</html>
