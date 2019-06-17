@@ -189,15 +189,6 @@
     startMobileNavAnim();
     $content.toggleClass('on');
     $sidebar.toggleClass('on');
-    // $(".o2jbox").css({
-    //   "height": clientH - 100 + 'px'
-    // })
-    // $(".sidebar").toggleClass('o2jtr')
-    // $(".o2jbg").toggleClass('o2jcl')
-    // $(".video-media").toggleClass('o2jrd')
-    // $("body").toggleClass('o2jfix')
-
-
     stopMobileNavAnim();
   });
 
@@ -205,10 +196,6 @@
     if (isMobileNavAnim || !$content.hasClass('on')) return;
     $content.removeClass('on');
     $sidebar.removeClass('on');
-    // $(".o2jbox").removeClass('o2jmr')
-    // $(".o2jbox").css({
-    //   "height": ''
-    // })
   });
 
 })(jQuery);
