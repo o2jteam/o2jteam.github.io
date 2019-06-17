@@ -188,12 +188,14 @@
     if (isMobileNavAnim) return;
     startMobileNavAnim();
     $content.toggleClass('on');
+    $(".video-media").toggleClass('o2jra')
     $sidebar.toggleClass('on');
     stopMobileNavAnim();
   });
 
   $($content).on('click', function () {
     if (isMobileNavAnim || !$content.hasClass('on')) return;
+    $(".video-media").removeClass('o2jra')
     $content.removeClass('on');
     $sidebar.removeClass('on');
   });

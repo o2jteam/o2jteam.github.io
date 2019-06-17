@@ -2698,6 +2698,11 @@ pre .javascript .function {
   height: 100vh;
   width: 100vw;
 }
+.o2jra {
+  -webkit-border-radius: 0.85rem;
+  -moz-border-radius: 0.85rem;
+  border-radius: 0.85rem;
+}
 .o2jmr {
   margin: 5rem 0;
   overflow-x: hidden;
