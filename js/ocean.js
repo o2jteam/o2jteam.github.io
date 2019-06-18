@@ -164,13 +164,12 @@
     var scrollSpeed = 1600;
 
     // Show and hide the scroll to top link based on scroll position
-    scrollElem.hide();
+    // scrollElem.hide();
     $('.o2jbox').scroll(function () {
       var scrollTop = $('.o2jbox').scrollTop();
-        if (scrollTop > upperLimit) {
+      if (scrollTop > upperLimit) {
         $(scrollElem).stop().fadeTo(300, 1); // fade back in
       } else {
-        scrollElem.css("display","inline-block")
         $(scrollElem).stop().fadeTo(300, 0); // fade out
       }
     });

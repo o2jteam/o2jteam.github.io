@@ -2192,6 +2192,7 @@ img {
 .articles .article-entry,
 .articles .article-footer {
   margin-top: 0;
+  margin-bottom: 2rem;
 }
 .articles .article-entry .article-gallery {
   margin-top: 1.5rem;
@@ -2593,7 +2594,8 @@ pre .javascript .function {
 }
 .totop {
   position: relative;
-  display: none;
+  display: inline-block;
+  opacity: 0;
   overflow: hidden;
   cursor: pointer;
   width: 3.2rem;
@@ -2731,8 +2733,13 @@ pre .javascript .function {
   width: 100%;
   text: content;
 }
-.o2jbrand {
-  width: 4rem;
+.category-list {
+  padding: 0;
+}
+.category-list li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
 @media (max-width: 1200px) {
   .o2jbox {

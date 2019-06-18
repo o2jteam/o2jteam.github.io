@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>
-    tags |
+    linux软路由设置 |
     
     obj前端团队</title>
   
@@ -30,7 +30,7 @@
     <main class="content">
       <div class="o2jbox">
         <section class="outer">
-  <article id="tags-" class="article article-type-tags" itemscope
+  <article id="page-" class="article article-type-page" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -39,7 +39,7 @@
       
   
     <h1 class="article-title" itemprop="name">
-      tags
+      linux软路由设置
     </h1>
   
 
@@ -57,13 +57,36 @@
       
 
       
-      
+      <p>因为心无所恃，所以才随遇而安​​。</p>
+<h3 id="情况说明"><a href="#情况说明" class="headerlink" title="情况说明"></a>情况说明</h3><p>在很多情况下，当我们为某些政府单位安装服务器时，经常会遇到客户要求我们进行“软路由”的配置，以达到实现内外网共通。在外部我们通过外网可以访问该服务器，在内部我们也可以通过单位的内网进行访问服务器。今天小泊就来介绍下linux系统内的“软路由”配置。</p>
+<a id="more"></a>
+<h3 id="“软路由”配置"><a href="#“软路由”配置" class="headerlink" title="“软路由”配置"></a>“软路由”配置</h3><p>例如，这里我们获取到了2个网卡的地址：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">内网网卡：eth0 192.168.1.100 网关：192.168.1.100</span><br><span class="line"></span><br><span class="line">外网网卡: eth1 119.222.222.222 网关：119.222.222.1</span><br></pre></td></tr></table></figure>
+
+<h4 id="第一步：设置默认网关"><a href="#第一步：设置默认网关" class="headerlink" title="第一步：设置默认网关"></a>第一步：设置默认网关</h4><p>设置默认网关，让所有IP包默认情况下均通过119.222.222.1 进行转发：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">route add default gw 119.222.222.1</span><br></pre></td></tr></table></figure>
+
+<h4 id="第二步：设置内网转发"><a href="#第二步：设置内网转发" class="headerlink" title="第二步：设置内网转发"></a>第二步：设置内网转发</h4><p>单独为内网设置转发特例，所有192.168开头的，全部走eth0</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">route add -net 192.168.0.0 netmask 255.255.0.0 dev eth0</span><br></pre></td></tr></table></figure>
+
+<p><strong>路由配置的添加最好是加到开机启动上</strong></p>
+<p>编辑启动文件，将内容添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/rc.local</span><br></pre></td></tr></table></figure>
+
+<p>备注：删除默认网关的命令如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">route del default</span><br></pre></td></tr></table></figure>
+
+<p>以上命令均在“终端”中输入。</p>
+<h2 id="联系小泊"><a href="#联系小泊" class="headerlink" title="联系小泊"></a>联系小泊</h2><p>email：<a href="mailto:643209899@qq.com" target="_blank" rel="noopener">643209899@qq.com</a></p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://o2jteam.github.io/tags/index.html" data-id="cjx1lz3f8000l1onmzkjpyoy1"
+      <a data-url="https://o2jteam.github.io/s/linux route.html" data-id="cjx1lz3fi000t1onmblwrlkqv"
         class="article-share-link">Share</a>
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/">undefined</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/">undefined</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/">undefined</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/">undefined</a></li></ul>
+
     </footer>
 
   </div>
