@@ -128,6 +128,7 @@
           $('.o2jbox').css({"overflow-y":"scroll"})
       }else{
           $('.o2jbox').css("width",'100%')
+          $('.o2jbox').css({"overflow-y":"scroll"})
       }
       $(window).resize(function(){
           if($('body').width() > 1200){
@@ -135,12 +136,14 @@
               $('.o2jbox').css({"overflow-y":"scroll"})
           }else{
               $('.o2jbox').css("width",'100%')
+              $('.o2jbox').css({"overflow-y":"scroll"})
           }
       });
     $(".anchor").click(function (event) {
       event.preventDefault();
-      $('html,body').animate({
-        scrollTop: $(this.hash).offset().top
+      var top = $(this.hash).offset().top;
+        $('.o2jbox').animate({
+        scrollTop: top
       }, 500);
     });
 
@@ -179,16 +182,6 @@
       return false;
     });
   })(jQuery);
-
-
-  // $('#o2jmd').click(function () {
-  //   console.log('ss')
-  //   console.log($($.attr(this, 'href')).offset().top)
-  //   $('html, body').animate({
-  //     scrollTop: $($.attr(this, 'href')).offset().top
-  //   }, 10);
-  //   return true;
-  // });
 
 
   // Mobile nav
