@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta name="generator" content="Hexo 3.9.0">
+<head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
   
@@ -30,8 +30,7 @@
     <main class="content">
       <div class="o2jbox">
         <section class="outer">
-  <article id="post-node.js usage" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
+  <article id="post-node.js usage" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
     
@@ -123,8 +122,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://o2jteam.github.io/post/node.js usage/" data-id="cjx18rgus000p4cnmqpxruz9c"
-        class="article-share-link">Share</a>
+      <a data-url="https://o2jteam.github.io/post/node.js usage/" data-id="cjx1r0r8n000r50ve7g9sef24" class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node-js/">Node.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/原创/">原创</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/系统环境变量配置/">系统环境变量配置</a></li></ul>
 
@@ -158,9 +156,30 @@
 
   
   
+  <div class="gitalk" id="gitalk-container"></div>
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+  <script type="text/javascript">
+    var gitalk = new Gitalk({
+      clientID: '837a3391082105a56c1c',
+      clientSecret: '19ebbdb48e14287b5b3b61f2bf29bc52ad7ac352',
+      repo: 'gitalk',
+      owner: 'piaoxiaobo',
+      admin: ['piaoxiaobo'],
+      // id: location.pathname,      // Ensure uniqueness and length less than 50
+      id: md5(location.pathname),
+      distractionFreeMode: false,  // Facebook-like distraction free mode
+      pagerDirection: 'last'
+    })
+
+  gitalk.render('gitalk-container')
+  </script>
+
   
 
 </article>
+
 </section>
         <footer class="footer">
   
@@ -239,10 +258,12 @@
 </nav>
 
 <div class="search-form-wrap">
-  <div class="local-search local-search-plugin">
-  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
-  <div id="local-search-result" class="local-search-result"></div>
-</div>
+    <div class="local-search local-search-plugin">
+    <div class="o2jsearch">
+      <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+      <div id="local-search-result" class="local-search-result"></div>
+    </div>
+  </div>
 </div>
     </aside>
     <script src="/js/jquery-2.0.3.min.js"></script>

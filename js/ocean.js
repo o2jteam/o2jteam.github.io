@@ -18,6 +18,7 @@
   $('.nav-item-search').on('click', function () {
     if (isSearchAnim) return;
     startSearchAnim();
+    $('.o2jsearch').css("width", $('.local-search').width() + 20 + 'px')
     $searchWrap.addClass('on');
     stopSearchAnim(function () {
       $('.local-search-input').focus();
@@ -123,26 +124,40 @@
 
   //页面加载执行事件
   $(document).ready(function ($) {
-      if($('body').width() > 1200){
-          $('.o2jbox').css({"width":($('.content').width() + 18) +'px'},{"overflow-y":"scroll"})
-          $('.o2jbox').css({"overflow-y":"scroll"})
-      }else{
-          $('.o2jbox').css("width",'100%')
-          $('.o2jbox').css({"overflow-y":"scroll"})
+    if ($('body').width() > 1200) {
+      $('.o2jbox').css({
+        "width": ($('.content').width() + 18) + 'px'
+      }, {
+        "overflow-y": "scroll"
+      })
+      $('.o2jbox').css({
+        "overflow-y": "scroll"
+      })
+    } else {
+      $('.o2jbox').css("width", '100%')
+      $('.o2jbox').css({
+        "overflow-y": "scroll"
+      })
+    }
+    $(window).resize(function () {
+      if ($('body').width() > 1200) {
+        $('.o2jbox').css({
+          "width": ($('.content').width() + 18) + 'px'
+        })
+        $('.o2jbox').css({
+          "overflow-y": "scroll"
+        })
+      } else {
+        $('.o2jbox').css("width", '100%')
+        $('.o2jbox').css({
+          "overflow-y": "scroll"
+        })
       }
-      $(window).resize(function(){
-          if($('body').width() > 1200){
-              $('.o2jbox').css({"width":($('.content').width() + 18) +'px'})
-              $('.o2jbox').css({"overflow-y":"scroll"})
-          }else{
-              $('.o2jbox').css("width",'100%')
-              $('.o2jbox').css({"overflow-y":"scroll"})
-          }
-      });
+    });
     $(".anchor").click(function (event) {
       event.preventDefault();
       var top = $(this.hash).offset().top;
-        $('.o2jbox').animate({
+      $('.o2jbox').animate({
         scrollTop: top
       }, 500);
     });
@@ -189,10 +204,10 @@
     $sidebar = $('.sidebar'),
     isMobileNavAnim = false,
     mobileNavAnimDuration = 200;
-    // if($('body').width() > 1200){
-    //     $('.o2jbox').css("width",($content.width() + 18) +'px')
-    // }
-    var startMobileNavAnim = function () {
+  // if($('body').width() > 1200){
+  //     $('.o2jbox').css("width",($content.width() + 18) +'px')
+  // }
+  var startMobileNavAnim = function () {
     isMobileNavAnim = true;
   };
 

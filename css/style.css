@@ -1442,6 +1442,7 @@ body ::selection {
   color: #e6e6e6;
 }
 a {
+  text-decoration: none;
   color: #127ea9;
 }
 a:hover {
@@ -1600,7 +1601,7 @@ img {
   transform-origin: 0 42%;
 }
 .sidebar {
-  position: absolute;
+  position: fixed;
   z-index: 2;
   top: 0;
   left: -20rem;
@@ -1655,6 +1656,13 @@ img {
   .jumbotron {
     margin-bottom: 6rem;
   }
+  .category-list {
+    padding: 10rem !important;
+    display: flex;
+  }
+  .footer {
+    width: 85vw;
+  }
   .content {
     z-index: 2;
     position: absolute;
@@ -1687,6 +1695,11 @@ img {
   }
   .local-search {
     width: 70rem;
+  }
+  .o2jsearch {
+    overflow-y: scroll;
+    height: 100%;
+    max-height: 50vh;
   }
 }
 .list-unstyled,
@@ -1770,25 +1783,27 @@ img {
   color: #1e3e3f;
 }
 .search-form-wrap {
-  position: fixed;
+  position: absolute;
   top: -100%;
-  right: 20rem;
-  left: 0;
+  width: 100vw;
+  left: 10rem;
   opacity: 0;
-  transition: 0.3s;
+  transition: 0.5s;
 }
 .search-form-wrap.on {
-  top: 0;
+  top: 10rem;
   opacity: 1;
 }
 .local-search {
   position: relative;
   margin: 0 auto;
-  padding: 3rem;
-  background-color: #fff;
+  background: rgba(255,255,255,0.57);
+  -webkit-border-radius: 0.85rem;
+  -moz-border-radius: 0.85rem;
+  border-radius: 0.85rem;
   box-shadow: 0 1rem 3rem rgba(30,62,63,0.05);
-  max-height: 100vh;
-  overflow-y: auto;
+  max-height: 50vh;
+  overflow: hidden;
 }
 .local-search-input {
   border: 0.1rem #e6e6e6 solid;
@@ -1806,8 +1821,8 @@ img {
 }
 .local-search-close {
   position: absolute;
-  top: 3.85rem;
-  right: 4.25rem;
+  top: 0.85rem;
+  right: 2.25rem;
   display: block;
   height: 2rem;
   width: 2rem;
@@ -1834,7 +1849,7 @@ img {
   margin-left: 0;
 }
 .search-result-list li {
-  padding: 1.5rem 0;
+  padding: 2rem;
 }
 .search-result-list li:not(:last-child) {
   border-bottom: 0.1rem #e6e6e6 solid;
@@ -2758,5 +2773,8 @@ width
   }
   .o2jwrap {
     height: 100%;
+  }
+  .nav-item-search {
+    display: none !important;
   }
 }
