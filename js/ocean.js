@@ -170,6 +170,7 @@
         if (scrollTop > upperLimit) {
         $(scrollElem).stop().fadeTo(300, 1); // fade back in
       } else {
+        scrollElem.css("display","inline-block")
         $(scrollElem).stop().fadeTo(300, 0); // fade out
       }
     });
