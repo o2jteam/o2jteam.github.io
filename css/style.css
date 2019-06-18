@@ -1591,6 +1591,7 @@ img {
   -webkit-overflow-scrolling: touch;
 }
 .content.on {
+  z-index: 2;
   -webkit-border-radius: 0.85rem;
   -moz-border-radius: 0.85rem;
   border-radius: 0.85rem;
@@ -1607,6 +1608,7 @@ img {
   bottom: 0;
   width: 20rem;
   background-color: #f4f4f4;
+  -webkit-overflow-scrolling: touch;
 }
 .sidebar.on {
   left: 0;
@@ -1650,11 +1652,12 @@ img {
 .navbar .nav .nav-item-link {
   color: #fff;
 }
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
   .jumbotron {
     margin-bottom: 6rem;
   }
   .content {
+    z-index: 2;
     position: absolute;
     top: 5rem;
     bottom: 5rem;
@@ -1664,17 +1667,15 @@ img {
     -moz-border-radius: 0.85rem;
     border-radius: 0.85rem;
     overflow: hidden;
-    width: 85vw;
   }
   .o2jbox {
-    overflow-y: scroll;
+    overflow: hidden;
     height: 100%;
-    overflow-x: hidden;
-    width: 85.9vw;
   }
   .sidebar {
     left: 0;
     background-color: transparent;
+    -webkit-overflow-scrolling: touch;
   }
   .navbar-toggle {
     display: none;
@@ -2694,6 +2695,12 @@ pre .javascript .function {
   overflow: hidden;
   background: #607d8b linear-gradient(to bottom, #607d8b 0%, #26323b 100%);
   height: 100vh;
+  width: 100vw;
+}
+.o2jra {
+  -webkit-border-radius: 0.85rem;
+  -moz-border-radius: 0.85rem;
+  border-radius: 0.85rem;
 }
 .o2jmr {
   margin: 5rem 0;
@@ -2719,7 +2726,17 @@ pre .javascript .function {
 .logo a {
   color: #fff;
 }
-@media (max-width: 768px) {
+.o2jnotice {
+  position: absolute;
+  top: 5rem;
+  width: 100%;
+  text: content;
+}
+@media (max-width: 1200px) {
+  .o2jbox {
+    height: 100%;
+width
+  }
   .sidebar {
     background: transparent;
   }
@@ -2728,6 +2745,7 @@ pre .javascript .function {
   }
   .content {
     height: 100%;
+    width: 100vw;
   }
   .o2jwrap {
     height: 100%;

@@ -121,8 +121,22 @@
   // lazyload
   $(".lazy").lazyload();
 
-  //
+  //页面加载执行事件
   $(document).ready(function ($) {
+      if($('body').width() > 1200){
+          $('.o2jbox').css({"width":($('.content').width() + 18) +'px'},{"overflow-y":"scroll"})
+          $('.o2jbox').css({"overflow-y":"scroll"})
+      }else{
+          $('.o2jbox').css("width",'100%')
+      }
+      $(window).resize(function(){
+          if($('body').width() > 1200){
+              $('.o2jbox').css({"width":($('.content').width() + 18) +'px'})
+              $('.o2jbox').css({"overflow-y":"scroll"})
+          }else{
+              $('.o2jbox').css("width",'100%')
+          }
+      });
     $(".anchor").click(function (event) {
       event.preventDefault();
       $('html,body').animate({
@@ -163,13 +177,26 @@
     });
   })(jQuery);
 
+
+  // $('#o2jmd').click(function () {
+  //   console.log('ss')
+  //   console.log($($.attr(this, 'href')).offset().top)
+  //   $('html, body').animate({
+  //     scrollTop: $($.attr(this, 'href')).offset().top
+  //   }, 10);
+  //   return true;
+  // });
+
+
   // Mobile nav
   var $content = $('.content'),
     $sidebar = $('.sidebar'),
     isMobileNavAnim = false,
     mobileNavAnimDuration = 200;
-
-  var startMobileNavAnim = function () {
+    // if($('body').width() > 1200){
+    //     $('.o2jbox').css("width",($content.width() + 18) +'px')
+    // }
+    var startMobileNavAnim = function () {
     isMobileNavAnim = true;
   };
 
@@ -189,6 +216,7 @@
     startMobileNavAnim();
     $content.toggleClass('on');
     $sidebar.toggleClass('on');
+    $('.video-media').toggleClass('o2jra');
     stopMobileNavAnim();
   });
 
@@ -196,6 +224,7 @@
     if (isMobileNavAnim || !$content.hasClass('on')) return;
     $content.removeClass('on');
     $sidebar.removeClass('on');
+    $('.video-media').removeClass('o2jra');
   });
 
 })(jQuery);
