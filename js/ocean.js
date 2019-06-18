@@ -143,10 +143,13 @@
         scrollTop: $(this.hash).offset().top
       }, 500);
     });
+
   });
+
 
   // To top
   (function ($) {
+
     // When to show the scroll link
     // higher number = scroll link appears further down the page
     var upperLimit = 1000;
@@ -159,9 +162,9 @@
 
     // Show and hide the scroll to top link based on scroll position
     scrollElem.hide();
-    $(window).scroll(function () {
-      var scrollTop = $(document).scrollTop();
-      if (scrollTop > upperLimit) {
+    $('.o2jbox').scroll(function () {
+      var scrollTop = $('.o2jbox').scrollTop();
+        if (scrollTop > upperLimit) {
         $(scrollElem).stop().fadeTo(300, 1); // fade back in
       } else {
         $(scrollElem).stop().fadeTo(300, 0); // fade out
@@ -170,7 +173,7 @@
 
     // Scroll to top animation on click
     $(scrollElem).click(function () {
-      $('html, body').animate({
+      $('.o2jbox').animate({
         scrollTop: 0
       }, scrollSpeed);
       return false;
@@ -216,7 +219,6 @@
     startMobileNavAnim();
     $content.toggleClass('on');
     $sidebar.toggleClass('on');
-    $('.video-media').toggleClass('o2jra');
     stopMobileNavAnim();
   });
 
@@ -224,7 +226,6 @@
     if (isMobileNavAnim || !$content.hasClass('on')) return;
     $content.removeClass('on');
     $sidebar.removeClass('on');
-    $('.video-media').removeClass('o2jra');
   });
 
 })(jQuery);
