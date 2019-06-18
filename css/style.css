@@ -1591,7 +1591,6 @@ img {
   -webkit-overflow-scrolling: touch;
 }
 .content.on {
-  z-index: 2;
   -webkit-border-radius: 0.85rem;
   -moz-border-radius: 0.85rem;
   border-radius: 0.85rem;
@@ -1708,8 +1707,8 @@ img {
   position: relative;
   height: auto;
 }
-.video .brand {
-  width: 10rem;
+.video .o2jbrand {
+  width: 4rem;
 }
 .video-frame {
   position: absolute;
@@ -2594,7 +2593,7 @@ pre .javascript .function {
 }
 .totop {
   position: relative;
-  display: inline-block;
+  display: none;
   overflow: hidden;
   cursor: pointer;
   width: 3.2rem;
@@ -2731,6 +2730,9 @@ pre .javascript .function {
   top: 5rem;
   width: 100%;
   text: content;
+}
+.o2jbrand {
+  width: 4rem;
 }
 @media (max-width: 1200px) {
   .o2jbox {
