@@ -1416,8 +1416,10 @@ template {
     z-index: 10200;
     font-size: 0;
     position: absolute;
-    bottom: 2rem;
-    right: 2rem;
+    bottom: 2rem !important;
+    right: 2rem !important;
+    width: 15rem;
+    height: 19rem;
     /*transition: all .3s ease-in-out;*/
 }
 
@@ -3894,6 +3896,9 @@ pre .javascript .function {
   padding: 0;
   margin: 0;
   list-style: none;
+}
+* {
+  touch-action: pan-y;
 }
 @media (max-width: 1199px) {
   .o2jbox {

@@ -1,5 +1,5 @@
-var home_Path = document.location.protocol + '//' + window.document.location.hostname + '/';
-var home_Path = 'http://localhost:4000/';
+// var home_Path = document.location.protocol + '//' + window.document.location.hostname + '/';
+var home_Path = 'https://o2jteam.github.io/';
 var userAgent = window.navigator.userAgent.toLowerCase();
 // console.log(userAgent);
 var norunAI = ["android", "iphone", "ipod", "ipad", "windows phone", "mqqbrowser", "msie", "trident/7.0"];
@@ -73,7 +73,7 @@ if (true) {
 		function initTips() {
 			$.ajax({
 				cache: true,
-				url: message_Path + 'message.json',
+				url:home_Path + message_Path + 'message.json',
 				dataType: "json",
 				success: function (result) {
 					$.each(result.mouseover, function (index, tips) {
@@ -591,7 +591,7 @@ if (true) {
 						// 	$('#landlord').fadeIn(200);
 						// },1300);
 					}
-					loadlive2d("live2d", message_Path + "model/histoire/model.json");
+					loadlive2d("live2d", home_Path + message_Path + "model/histoire/model.json");
 					// setTimeout(function(){
 					// 	loadlive2d("live2d", message_Path+"model/histoire/model.json");
 					// });

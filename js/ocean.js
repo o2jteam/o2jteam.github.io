@@ -217,11 +217,80 @@
     }, mobileNavAnimDuration);
   };
 
-  // var clientH = document.body.clientHeight;
-  // console.log(clientH)
-  // $(".o2jbox").css({
-  //   "height": clientH + 'px'
-  // })
+  var flag = false;
+  var cur = {
+    x: 0,
+    y: 0
+  }
+  var nx, ny, dx, dy, x, y;
+
+  function down() {
+    flag = true;
+    var touch;
+    if (event.touches) {
+      touch = event.touches[0];
+    } else {
+      touch = event;
+    }
+    cur.x = touch.clientX;
+    cur.y = touch.clientY;
+    dx = landlord.offsetLeft;
+    dy = landlord.offsetTop;
+  }
+
+  function move() {
+    if (flag) {
+      var touch;
+      if (event.touches) {
+        touch = event.touches[0];
+      } else {
+        touch = event;
+      }
+      nx = touch.clientX - cur.x;
+      ny = touch.clientY - cur.y;
+      x = dx + nx;
+      y = dy + ny;
+      landlord.style.left = x + "px";
+      landlord.style.top = y + "px";
+      //阻止页面的滑动默认事件
+      document.addEventListener("touchmove", function () {
+        event.preventDefault();
+      }, {
+        passive: false
+      });
+    }
+  }
+  //鼠标释放时候的函数
+  function end() {
+    flag = false;
+  }
+  var landlord = document.getElementById("landlord");
+  landlord.addEventListener("mousedown", function () {
+    down();
+  }, false);
+  landlord.addEventListener("touchstart", function () {
+    down();
+  }, {
+    passive: false
+  })
+  landlord.addEventListener("mousemove", function () {
+    move();
+  }, false);
+  landlord.addEventListener("touchmove", function () {
+    move();
+  }, {
+    passive: false
+  })
+  document.body.addEventListener("mouseup", function () {
+    end();
+  }, false);
+  landlord.addEventListener("touchend", function () {
+    end();
+  }, {
+    passive: false
+  });
+
+
   $('#menubtn').on('click', function () {
     if (isMobileNavAnim) return;
     startMobileNavAnim();
