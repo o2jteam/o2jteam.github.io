@@ -2605,6 +2605,7 @@ body {
   height: 100%;
 }
 html {
+  touch-action: none;
   font-size: 62.5%;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
@@ -3896,9 +3897,6 @@ pre .javascript .function {
   padding: 0;
   margin: 0;
   list-style: none;
-}
-* {
-  touch-action: pan-y;
 }
 @media (max-width: 1199px) {
   .o2jbox {
