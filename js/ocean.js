@@ -222,7 +222,7 @@
   // $(".o2jbox").css({
   //   "height": clientH + 'px'
   // })
-  $('.navbar-toggle').on('click', function () {
+  $('#menubtn').on('click', function () {
     if (isMobileNavAnim) return;
     startMobileNavAnim();
     $content.toggleClass('on');
