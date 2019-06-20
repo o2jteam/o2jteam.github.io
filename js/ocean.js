@@ -292,7 +292,7 @@
         function() {
           event.preventDefault();
         },
-        false
+        { passive: false }
       );
     }
   }
@@ -327,7 +327,7 @@
     function() {
       move();
     },
-    false
+    { passive: false }
   );
   document.body.addEventListener(
     "mouseup",
