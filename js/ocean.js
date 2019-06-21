@@ -260,6 +260,7 @@
   cont.on({
     //绑定事件
     touchstart: function(e) {
+      e.preventDefault();
       startX = e.originalEvent.targetTouches[0].pageX; //获取点击点的X坐标
       startY = e.originalEvent.targetTouches[0].pageY; //获取点击点的Y坐标
       //console.log("startX="+startX+"************startY="+startY);
