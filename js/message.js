@@ -28,6 +28,58 @@ if (true) {
 	var sleepTimer_ = null;
 	var AITalkFlag = false;
 	var talkNum = 0;
+
+
+	$(document).ready(function () {
+		var landT = sessionStorage.getItem("historytop");
+		var landL = sessionStorage.getItem("historyleft");
+		if (landT == null || landL == null) {
+			$('#landlord').css('right', '2rem');
+			$('#landlord').css('bottom', '2rem');
+		}
+		$('#landlord').css('left', landL + 'px');
+		$('#landlord').css('top', landT + 'px');
+		$('#landlord').css('display', 'block');
+		var AIimgSrc = [
+			home_Path + message_Path + "model/histoire/histoire.1024/texture_00.png",
+			home_Path + message_Path + "model/histoire/histoire.1024/texture_01.png",
+			home_Path + message_Path + "model/histoire/histoire.1024/texture_02.png",
+			home_Path + message_Path + "model/histoire/histoire.1024/texture_03.png"
+		];
+		var images = [];
+		var imgLength = AIimgSrc.length;
+		var loadingNum = 0;
+		for (var i = 0; i < imgLength; i++) {
+			images[i] = new Image();
+			images[i].src = AIimgSrc[i];
+			images[i].onload = function () {
+				loadingNum++;
+				if (loadingNum === imgLength) {
+					var live2dhidden = localStorage.getItem("live2dhidden");
+					console.log(live2dhidden)
+					if (live2dhidden === "0") {
+						$('#live2d').css("display", "none");
+						$('.message').css("display", "none");
+						AIFadeFlag = true
+						// setTimeout(function(){
+						// 	$('#open_live2d').fadeIn(200);
+						// },1300);
+					} else {
+						$('#live2d').delay(200).fadeIn(200);
+						$('.message').delay(200).fadeIn(200);
+						AIFadeFlag = false;
+					}
+					loadlive2d("live2d", home_Path + message_Path + "model/histoire/model.json");
+					// setTimeout(function(){
+					// 	loadlive2d("live2d", message_Path+"model/histoire/model.json");
+					// });
+					initLive2d();
+					images = null;
+				}
+			}
+		}
+	});
+
 	(function () {
 		function renderTip(template, context) {
 			var tokenReg = /(\\)?\{([^\{\}\\]+)(\\)?\}/g;
@@ -60,11 +112,11 @@ if (true) {
 			return '';
 		};
 
-		$(document).ready(function () {
-			setTimeout(function () {
-				showMessage('<span>欢迎访问 o2jteam ~</span>', 3000);
-			}, 200)
-		})
+		// $(document).ready(function () {
+		// 	setTimeout(function () {
+		// 		showMessage('<span>欢迎访问 o2jteam ~</span>', 3000);
+		// 	}, 200)
+		// })
 
 		$(document).on('copy', function () {
 			showMessage('你都复制了些什么呀，转载要记得加上出处哦~~', 5000);
@@ -207,9 +259,10 @@ if (true) {
 		if (Array.isArray(text)) text = text[Math.floor(Math.random() * text.length + 1) - 1];
 		$('.message').stop();
 		$('.message').html(text);
-		$('.message').fadeTo(200, 1);
-		//if (timeout === null) timeout = 5000;
-		//hideMessage(timeout);
+		var live2dhidden = localStorage.getItem("live2dhidden");
+		if (live2dhidden === "1") {
+			$('.message').fadeTo(200, 1);
+		}
 	}
 
 	function talkValTimer() {
@@ -225,27 +278,18 @@ if (true) {
 	function initLive2d() {
 		$('#hideButton').on('click', function () {
 			if (AIFadeFlag) {
-				return false;
-			} else {
-				AIFadeFlag = true;
-				localStorage.setItem("live2dhidden", "0");
-				$('#landlord').fadeOut(200);
-				$('#open_live2d').delay(200).fadeIn(200);
+				localStorage.setItem("live2dhidden", "1")
+				$('#live2d').delay(200).fadeIn(200);
+				$('.message').delay(200).fadeIn(200);
 				setTimeout(function () {
 					AIFadeFlag = false;
 				}, 300);
-			}
-		});
-		$('#open_live2d').on('click', function () {
-			if (AIFadeFlag) {
-				return false;
 			} else {
-				AIFadeFlag = true;
-				localStorage.setItem("live2dhidden", "1");
-				$('#open_live2d').fadeOut(200);
-				$('#landlord').delay(200).fadeIn(200);
+				localStorage.setItem("live2dhidden", "0")
+				$('#live2d').fadeOut(200);
+				$('.message').fadeOut(200);
 				setTimeout(function () {
-					AIFadeFlag = false;
+					AIFadeFlag = true;
 				}, 300);
 			}
 		});
@@ -503,102 +547,65 @@ if (true) {
 		if (live2dUser !== null) {
 			$('#AIuserName').val(live2dUser);
 		}
-		//获取位置
-		var landL = sessionStorage.getItem("historywidth");
-		var landB = sessionStorage.getItem("historyheight");
-		if (landL == null || landB == null) {
-			landL = '5px'
-			landB = '0px'
-		}
-		$('#landlord').css('left', landL + 'px');
-		$('#landlord').css('bottom', landB + 'px');
-		//移动
-		function getEvent() {
-			return window.event || arguments.callee.caller.arguments[0];
-		}
-		var smcc = document.getElementById("landlord");
-		var moveX = 0;
-		var moveY = 0;
-		var moveBottom = 0;
-		var moveLeft = 0;
-		var moveable = false;
-		var docMouseMoveEvent = document.onmousemove;
-		var docMouseUpEvent = document.onmouseup;
-		smcc.onmousedown = function () {
-			var ent = getEvent();
-			moveable = true;
-			moveX = ent.clientX;
-			moveY = ent.clientY;
-			var obj = smcc;
-			moveBottom = parseInt(obj.style.bottom);
-			moveLeft = parseInt(obj.style.left);
-			if (isFirefox = navigator.userAgent.indexOf("Firefox") > 0) {
-				window.getSelection().removeAllRanges();
-			}
-			document.onmousemove = function () {
-				if (moveable) {
-					var ent = getEvent();
-					var x = moveLeft + ent.clientX - moveX;
-					var y = moveBottom + (moveY - ent.clientY);
-					obj.style.left = x + "px";
-					obj.style.bottom = y + "px";
-				}
-			};
-			document.onmouseup = function () {
-				if (moveable) {
-					var historywidth = obj.style.left;
-					var historyheight = obj.style.bottom;
-					historywidth = historywidth.replace('px', '');
-					historyheight = historyheight.replace('px', '');
-					sessionStorage.setItem("historywidth", historywidth);
-					sessionStorage.setItem("historyheight", historyheight);
-					document.onmousemove = docMouseMoveEvent;
-					document.onmouseup = docMouseUpEvent;
-					moveable = false;
-					moveX = 0;
-					moveY = 0;
-					moveBottom = 0;
-					moveLeft = 0;
-				}
-			};
-		};
+		// //获取位置
+		// var landL = sessionStorage.getItem("historywidth");
+		// var landB = sessionStorage.getItem("historyheight");
+		// if (landL == null || landB == null) {
+		// 	landL = '5px'
+		// 	landB = '0px'
+		// }
+		// $('#landlord').css('left', landL + 'px');
+		// $('#landlord').css('bottom', landB + 'px');
+		// //移动
+		// function getEvent() {
+		// 	return window.event || arguments.callee.caller.arguments[0];
+		// }
+		// var smcc = document.getElementById("landlord");
+		// var moveX = 0;
+		// var moveY = 0;
+		// var moveBottom = 0;
+		// var moveLeft = 0;
+		// var moveable = false;
+		// var docMouseMoveEvent = document.onmousemove;
+		// var docMouseUpEvent = document.onmouseup;
+		// smcc.onmousedown = function () {
+		// 	var ent = getEvent();
+		// 	moveable = true;
+		// 	moveX = ent.clientX;
+		// 	moveY = ent.clientY;
+		// 	var obj = smcc;
+		// 	moveBottom = parseInt(obj.style.bottom);
+		// 	moveLeft = parseInt(obj.style.left);
+		// 	if (isFirefox = navigator.userAgent.indexOf("Firefox") > 0) {
+		// 		window.getSelection().removeAllRanges();
+		// 	}
+		// 	document.onmousemove = function () {
+		// 		if (moveable) {
+		// 			var ent = getEvent();
+		// 			var x = moveLeft + ent.clientX - moveX;
+		// 			var y = moveBottom + (moveY - ent.clientY);
+		// 			obj.style.left = x + "px";
+		// 			obj.style.bottom = y + "px";
+		// 		}
+		// 	};
+		// 	document.onmouseup = function () {
+		// 		if (moveable) {
+		// 			var historywidth = obj.style.left;
+		// 			var historyheight = obj.style.bottom;
+		// 			historywidth = historywidth.replace('px', '');
+		// 			historyheight = historyheight.replace('px', '');
+		// 			sessionStorage.setItem("historywidth", historywidth);
+		// 			sessionStorage.setItem("historyheight", historyheight);
+		// 			document.onmousemove = docMouseMoveEvent;
+		// 			document.onmouseup = docMouseUpEvent;
+		// 			moveable = false;
+		// 			moveX = 0;
+		// 			moveY = 0;
+		// 			moveBottom = 0;
+		// 			moveLeft = 0;
+		// 		}
+		// 	};
+		// };
 	}
-	$(document).ready(function () {
-		var AIimgSrc = [
-			home_Path + message_Path + "model/histoire/histoire.1024/texture_00.png",
-			home_Path + message_Path + "model/histoire/histoire.1024/texture_01.png",
-			home_Path + message_Path + "model/histoire/histoire.1024/texture_02.png",
-			home_Path + message_Path + "model/histoire/histoire.1024/texture_03.png"
-		];
-		var images = [];
-		var imgLength = AIimgSrc.length;
-		var loadingNum = 0;
-		for (var i = 0; i < imgLength; i++) {
-			images[i] = new Image();
-			images[i].src = AIimgSrc[i];
-			images[i].onload = function () {
-				loadingNum++;
-				if (loadingNum === imgLength) {
-					var live2dhidden = localStorage.getItem("live2dhidden");
-					if (live2dhidden === "0") {
-						$('#open_live2d').fadeIn(200);
-						// setTimeout(function(){
-						// 	$('#open_live2d').fadeIn(200);
-						// },1300);
-					} else {
-						$('#landlord').fadeIn(200);
-						// setTimeout(function(){
-						// 	$('#landlord').fadeIn(200);
-						// },1300);
-					}
-					loadlive2d("live2d", home_Path + message_Path + "model/histoire/model.json");
-					// setTimeout(function(){
-					// 	loadlive2d("live2d", message_Path+"model/histoire/model.json");
-					// });
-					initLive2d();
-					images = null;
-				}
-			}
-		}
-	});
+
 }

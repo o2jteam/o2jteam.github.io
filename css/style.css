@@ -1411,13 +1411,14 @@ template {
 }
 }
 #landlord {
+    display: none;
     user-select: none;
     bottom: 0;
     z-index: 10200;
     font-size: 0;
     position: absolute;
-    bottom: 2rem !important;
-    right: 2rem !important;
+    bottom: 2rem;
+    right: 2rem;
     width: 15rem;
     height: 19rem;
     /*transition: all .3s ease-in-out;*/
@@ -1631,7 +1632,7 @@ template {
 }
 
 .live_ico_box {
-    width: 15px;
+    width: 1.7rem;
     position: absolute;
     z-index: 9999;
     right: 0rem;

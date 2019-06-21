@@ -287,6 +287,9 @@
         left: moveX + sX - startX,
         top: moveY + sY - startY
       });
+
+      sessionStorage.setItem("historytop", moveY + sY - startY);
+      sessionStorage.setItem("historyleft", moveX + sX - startX);
     },
     mousedown: function (ev) {
       var patch = parseInt($(this).css("height")) / 2;
@@ -312,6 +315,7 @@
         if (l > w) {
           l = w;
         }
+
         $(this).css({
           top: t,
           left: l
