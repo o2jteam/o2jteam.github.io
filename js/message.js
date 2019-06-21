@@ -73,7 +73,7 @@ if (true) {
 		function initTips() {
 			$.ajax({
 				cache: true,
-				url:home_Path + message_Path + 'message.json',
+				url: home_Path + message_Path + 'message.json',
 				dataType: "json",
 				success: function (result) {
 					$.each(result.mouseover, function (index, tips) {

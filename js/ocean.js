@@ -1,31 +1,31 @@
-(function($) {
+(function ($) {
   // Search ------------
   var $searchWrap = $(".search-form-wrap"),
     isSearchAnim = false,
     searchAnimDuration = 200;
 
-  var startSearchAnim = function() {
+  var startSearchAnim = function () {
     isSearchAnim = true;
   };
 
-  var stopSearchAnim = function(callback) {
-    setTimeout(function() {
+  var stopSearchAnim = function (callback) {
+    setTimeout(function () {
       isSearchAnim = false;
       callback && callback();
     }, searchAnimDuration);
   };
 
-  $(".nav-item-search").on("click", function() {
+  $(".nav-item-search").on("click", function () {
     if (isSearchAnim) return;
     startSearchAnim();
     $(".o2jsearch").css("width", $(".local-search").width() + 20 + "px");
     $searchWrap.addClass("on");
-    stopSearchAnim(function() {
+    stopSearchAnim(function () {
       $(".local-search-input").focus();
     });
   });
 
-  $(document).mouseup(function(e) {
+  $(document).mouseup(function (e) {
     var _con = $(".local-search");
     if (!_con.is(e.target) && _con.has(e.target).length === 0) {
       $searchWrap.removeClass("on");
@@ -34,22 +34,22 @@
 
   // 移动设备侦测
   var isMobile = {
-    Android: function() {
+    Android: function () {
       return navigator.userAgent.match(/Android/i);
     },
-    BlackBerry: function() {
+    BlackBerry: function () {
       return navigator.userAgent.match(/BlackBerry/i);
     },
-    iOS: function() {
+    iOS: function () {
       return navigator.userAgent.match(/iPhone|iPad|iPod/i);
     },
-    Opera: function() {
+    Opera: function () {
       return navigator.userAgent.match(/Opera Mini/i);
     },
-    Windows: function() {
+    Windows: function () {
       return navigator.userAgent.match(/IEMobile/i);
     },
-    any: function() {
+    any: function () {
       return (
         isMobile.Android() ||
         isMobile.BlackBerry() ||
@@ -61,17 +61,17 @@
   };
   // 建议在移动端不初始化，其实 /search.xml 文件还挺大的，
   if ($(".local-search").size() && !isMobile.any()) {
-    $.getScript("/js/search.js", function() {
+    $.getScript("/js/search.js", function () {
       searchFunc("/search.xml", "local-search-input", "local-search-result");
     });
   }
 
   // Share ------------
   $("body")
-    .on("click", function() {
+    .on("click", function () {
       $(".article-share-box.on").removeClass("on");
     })
-    .on("click", ".article-share-link", function(e) {
+    .on("click", ".article-share-link", function (e) {
       e.stopPropagation();
 
       var $this = $(this),
@@ -93,17 +93,17 @@
           '<input class="article-share-input" value="' + url + '">',
           '<div class="article-share-links">',
           '<a href="https://twitter.com/intent/tweet?url=' +
-            encodedUrl +
-            '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+          encodedUrl +
+          '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
           '<a href="https://www.facebook.com/sharer.php?u=' +
-            encodedUrl +
-            '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+          encodedUrl +
+          '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
           '<a href="http://pinterest.com/pin/create/button/?url=' +
-            encodedUrl +
-            '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+          encodedUrl +
+          '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
           '<a href="https://plus.google.com/share?url=' +
-            encodedUrl +
-            '" class="article-share-google" target="_blank" title="Google+"></a>',
+          encodedUrl +
+          '" class="article-share-google" target="_blank" title="Google+"></a>',
           "</div>",
           "</div>"
         ].join("");
@@ -120,13 +120,13 @@
         })
         .addClass("on");
     })
-    .on("click", ".article-share-box", function(e) {
+    .on("click", ".article-share-box", function (e) {
       e.stopPropagation();
     })
-    .on("click", ".article-share-box-input", function() {
+    .on("click", ".article-share-box-input", function () {
       $(this).select();
     })
-    .on("click", ".article-share-box-link", function(e) {
+    .on("click", ".article-share-box-link", function (e) {
       e.preventDefault();
       e.stopPropagation();
 
@@ -148,16 +148,13 @@
   $(".lazy").lazyload();
 
   //页面加载执行事件
-  $(document).ready(function($) {
+  $(document).ready(function ($) {
     if ($("body").width() > 1200) {
-      $(".o2jbox").css(
-        {
-          width: $(".content").width() + 18 + "px"
-        },
-        {
-          "overflow-y": "scroll"
-        }
-      );
+      $(".o2jbox").css({
+        width: $(".content").width() + 18 + "px"
+      }, {
+        "overflow-y": "scroll"
+      });
       $(".o2jbox").css({
         "overflow-y": "scroll"
       });
@@ -167,7 +164,7 @@
         "overflow-y": "scroll"
       });
     }
-    $(window).resize(function() {
+    $(window).resize(function () {
       if ($("body").width() > 1200) {
         $(".o2jbox").css({
           width: $(".content").width() + 18 + "px"
@@ -182,11 +179,10 @@
         });
       }
     });
-    $(".anchor").click(function(event) {
+    $(".anchor").click(function (event) {
       event.preventDefault();
       var top = $(this.hash).offset().top;
-      $(".o2jbox").animate(
-        {
+      $(".o2jbox").animate({
           scrollTop: top
         },
         500
@@ -195,7 +191,7 @@
   });
 
   // To top
-  (function($) {
+  (function ($) {
     // When to show the scroll link
     // higher number = scroll link appears further down the page
     var upperLimit = 1000;
@@ -208,7 +204,7 @@
 
     // Show and hide the scroll to top link based on scroll position
     // scrollElem.hide();
-    $(".o2jbox").scroll(function() {
+    $(".o2jbox").scroll(function () {
       var scrollTop = $(".o2jbox").scrollTop();
       if (scrollTop > upperLimit) {
         $(scrollElem)
@@ -222,9 +218,8 @@
     });
 
     // Scroll to top animation on click
-    $(scrollElem).click(function() {
-      $(".o2jbox").animate(
-        {
+    $(scrollElem).click(function () {
+      $(".o2jbox").animate({
           scrollTop: 0
         },
         scrollSpeed
@@ -241,12 +236,12 @@
   // if($('body').width() > 1200){
   //     $('.o2jbox').css("width",($content.width() + 18) +'px')
   // }
-  var startMobileNavAnim = function() {
+  var startMobileNavAnim = function () {
     isMobileNavAnim = true;
   };
 
-  var stopMobileNavAnim = function() {
-    setTimeout(function() {
+  var stopMobileNavAnim = function () {
+    setTimeout(function () {
       isMobileNavAnim = false;
     }, mobileNavAnimDuration);
   };
@@ -259,8 +254,7 @@
   var winH = $(window).height();
   cont.on({
     //绑定事件
-    touchstart: function(e) {
-      e.preventDefault();
+    touchstart: function (e) {
       startX = e.originalEvent.targetTouches[0].pageX; //获取点击点的X坐标
       startY = e.originalEvent.targetTouches[0].pageY; //获取点击点的Y坐标
       //console.log("startX="+startX+"************startY="+startY);
@@ -272,7 +266,7 @@
       topY = startY - sY; //鼠标所能移动最上端是当前鼠标距div上边距的位置
       bottomY = winH - contH + topY; //鼠标所能移动最下端是当前窗口距离减去鼠标距div最下端位置
     },
-    touchmove: function(e) {
+    touchmove: function (e) {
       e.preventDefault();
       moveX = e.originalEvent.targetTouches[0].pageX; //移动过程中X轴的坐标
       moveY = e.originalEvent.targetTouches[0].pageY; //移动过程中Y轴的坐标
@@ -294,10 +288,10 @@
         top: moveY + sY - startY
       });
     },
-    mousedown: function(ev) {
+    mousedown: function (ev) {
       var patch = parseInt($(this).css("height")) / 2;
       //console.log(patch);
-      $(this).mousemove(function(ev) {
+      $(this).mousemove(function (ev) {
         var oEvent = ev || event;
         //console.log(oEvent.target);
         var oX = oEvent.clientX;
@@ -318,15 +312,18 @@
         if (l > w) {
           l = w;
         }
-        $(this).css({ top: t, left: l });
+        $(this).css({
+          top: t,
+          left: l
+        });
       });
-      $(this).mouseup(function() {
+      $(this).mouseup(function () {
         $(this).unbind("mousemove");
       });
     }
   });
 
-  $("#menubtn").on("click", function() {
+  $("#menubtn").on("click", function () {
     if (isMobileNavAnim) return;
     startMobileNavAnim();
     $content.toggleClass("on");
@@ -334,7 +331,7 @@
     stopMobileNavAnim();
   });
 
-  $($content).on("click", function() {
+  $($content).on("click", function () {
     if (isMobileNavAnim || !$content.hasClass("on")) return;
     $content.removeClass("on");
     $sidebar.removeClass("on");
