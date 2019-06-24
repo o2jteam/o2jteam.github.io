@@ -147,19 +147,20 @@
   // lazyload
   $(".lazy").lazyload();
 
+  // "width": $(".content").width() + 18 + "px",
   //页面加载执行事件
   $(document).ready(function ($) {
     if ($("body").width() >= 1200) {
       $(".o2jbox").css({
-        "width": $(".content").width() + 18 + "px","overflow-y": "scroll","overflow-x":"hidden"
+       "overflow-y": "scroll","overflow-x":"hidden"
       });
     } else {
       $(".o2jbox").css({"width":"100%","overflow-y": "scroll"});
     }
     $(window).resize(function () {
-       if ($("body").width() >= 1200) {
+      if ($("body").width() >= 1200) {
           $(".o2jbox").css({
-            "width": $(".content").width() + 18 + "px","overflow-y": "scroll","overflow-x":"hidden"
+            "overflow-y": "scroll","overflow-x":"hidden"
           });
         } else {
           $(".o2jbox").css({"width":"100%","overflow-y": "scroll"});
