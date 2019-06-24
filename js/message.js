@@ -56,7 +56,6 @@ if (true) {
 				loadingNum++;
 				if (loadingNum === imgLength) {
 					var live2dhidden = localStorage.getItem("live2dhidden");
-					console.log(live2dhidden)
 					if (live2dhidden === "0") {
 						$('#live2d').css("display", "none");
 						$('.message').css("display", "none");

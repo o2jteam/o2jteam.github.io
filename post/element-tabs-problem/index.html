@@ -69,14 +69,10 @@
 
       
       <p>生来不喜帝王色，偏惜南山一缕风。</p>
-<p>今天看到几个比较常见的关于Javascript知识方面的面试题，一起和大家分享下~</p>
-<a id="more"></a>
+<p>今天看到几个比较常见的关于Javascript知识方面的面试题，一起和大家分享下~<br><a id="more"></a></p>
 <h4 id="考察“原型链”"><a href="#考察“原型链”" class="headerlink" title="考察“原型链”"></a>考察“原型链”</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line"></span><br><span class="line">	var F = function()&#123;&#125;;</span><br><span class="line">	Object.prototype.a = function()&#123;</span><br><span class="line">	  console.log(&apos;a()&apos;)</span><br><span class="line">	&#125;;</span><br><span class="line">	Function.prototype.b = function()&#123;</span><br><span class="line">	  console.log(&apos;b()&apos;)</span><br><span class="line">	&#125;;</span><br><span class="line">	var f = new F();</span><br><span class="line">	F.a();</span><br><span class="line">	F.b();</span><br><span class="line">	f.a();</span><br><span class="line">	f.b();</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
 <p>分别打印：F.a(); F.b(); f.a(); f.b();的值</p>
-<p>首先，我们来明确一下“原型链”的概念：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1. 访问一个对象的属性时，先在自身属性中查找，找到返回</span><br><span class="line">2. 如果没有, 再沿着__proto__这条链向上查找, 找到返回</span><br><span class="line">3. 如果最终没找到, 返回undefined</span><br><span class="line">4.  __proto__这条原型查找链就是原型链: 隐式原型链</span><br></pre></td></tr></table></figure>
-
+<p>首先，我们来明确一下“原型链”的概念：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1. 访问一个对象的属性时，先在自身属性中查找，找到返回</span><br><span class="line">2. 如果没有, 再沿着__proto__这条链向上查找, 找到返回</span><br><span class="line">3. 如果最终没找到, 返回undefined</span><br><span class="line">4.  __proto__这条原型查找链就是原型链: 隐式原型链</span><br></pre></td></tr></table></figure></p>
 <p>通过概念，我们来确定每个函数对象的值</p>
 <p><strong>F.a();</strong><br>我们可以将F.a()拆开来看，F我们可以将它理解为1个对象，a()可以看成它的属性。从代码中我们可以得知，F明显被定义为一个“函数”，所以“F.a()”为一个函数对象。</p>
 <p>对象F首先在自身属性中查找”a”的属性，结果自身中没有该属性，则继续沿着原型链继续向上找，我们已知F为函数，则所有的函数均来自于“Function”，继续向“Function”显式原型中去找。</p>
@@ -86,27 +82,40 @@
 <p><strong>f.b();</strong><br>同理，在去原型链中寻找时，在“Object”中的显式原型中并未含有，则返回报错（我们可以先理解f.b为undefined，undefined调用的报错）：Uncaught TypeError: f.b is not a function</p>
 <p>这一道题很贴切的考察了对于“原型链”的理解。</p>
 <h4 id="考察“预处理-预解析过程”"><a href="#考察“预处理-预解析过程”" class="headerlink" title="考察“预处理/预解析过程”"></a>考察“预处理/预解析过程”</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">if (!(b in window)) &#123;</span><br><span class="line">  var b = 1;</span><br><span class="line">&#125;</span><br><span class="line">console.log(b)</span><br></pre></td></tr></table></figure>
-
 <p>打印：b的值。</p>
 <p>当在浏览器中预解析时，“var”首先提升变量，只是定义变量b，但并未赋值，此时的b的值为“undefined”，当预解析结束，当代码开始执行时，“b”在全局window变量中，此时“!”取反，则不进“if”条件语句，console.log(undefined)的值为“undefined”。</p>
 <h4 id="考察“作用域”"><a href="#考察“作用域”" class="headerlink" title="考察“作用域”"></a>考察“作用域”</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">  fn2: function () &#123;</span><br><span class="line">    console.log(fn2)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.fn2()</span><br></pre></td></tr></table></figure>
-
 <p>打印“fn2”的值</p>
 <p>这里我们要分清楚代码含义，定义的“obj”是一个对象，并不是一个“作用域”，在“obj”中含有一个属性“fn2”，在这里我们来打印的“fn2”明显是一个变量，所以我们要在当前作用域“function”中寻找“fn2”，未找到之后，到“全局作用域”window中寻找，全局作用域中也未找到则报错“Uncaught ReferenceError: fn2 is not defined”</p>
-<p>延伸：如何解决报错呢？<br>我们可以通过对象属性可以解决报错。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">  fn2: function () &#123;</span><br><span class="line">    console.log(obj.fn2)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.fn2()</span><br></pre></td></tr></table></figure>
-
-<p>或者</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">  fn2: function () &#123;</span><br><span class="line">    console.log(this.fn2)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.fn2()</span><br></pre></td></tr></table></figure>
-
+<p>延伸：如何解决报错呢？<br>我们可以通过对象属性可以解决报错。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">  fn2: function () &#123;</span><br><span class="line">    console.log(obj.fn2)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.fn2()</span><br></pre></td></tr></table></figure></p>
+<p>或者<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">  fn2: function () &#123;</span><br><span class="line">    console.log(this.fn2)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.fn2()</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://o2jteam.github.io/post/element-tabs-problem/" data-id="cjx5hjgl5000eo4veo19po7im" class="article-share-link">Share</a>
+      <a data-url="https://o2jteam.github.io/post/element-tabs-problem/" data-id="cjx78izpy000pnwhjze8w8yiz" class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/面试题/">面试题</a></li></ul>
 
+      <!-- 要添加的内容 -->
+      
+      <div>
+    <ul class="post-copyright">
+        <li class="post-copyright-author">
+            <strong>作者:  </strong>o2jteam
+        </li>
+        <li class="post-copyright-link">
+            <strong>文章链接:  </strong>
+            <a href="/post/element-tabs-problem/" target="_blank" title="几道常见的JavaScript面试题">https://o2jteam.github.io/post/element-tabs-problem/</a>
+        </li>
+        <li class="post-copyright-license">
+            <strong>版权声明:  </strong>
+            本网志所有文章除特别声明外,均采用 <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            许可协议。转载请注明出处!
+        </li>
+    </ul>
+    <div></div></div>
+      
     </footer>
 
   </div>
@@ -140,7 +149,6 @@
   
 
 </article>
-
 </section>
         <footer class="footer">
   
