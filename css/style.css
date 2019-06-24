@@ -1419,9 +1419,8 @@ template {
     position: absolute;
     bottom: 2rem;
     right: 2rem;
-    width: 15rem;
+    width: 1rem;
     height: 19rem;
-    /*transition: all .3s ease-in-out;*/
 }
 
 .landlordPC {
@@ -3908,7 +3907,16 @@ pre .javascript .function {
   margin: 0;
   list-style: none;
 }
+#menubtn {
+  display: none;
+}
+.o2jbox {
+  position: absolute;
+}
 @media (max-width: 1199px) {
+  #menubtn {
+    display: block;
+  }
   .o2jbox {
     height: 100%;
 width

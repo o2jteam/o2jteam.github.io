@@ -1,5 +1,5 @@
 // var home_Path = document.location.protocol + '//' + window.document.location.hostname + '/';
-var home_Path = 'https://o2jteam.github.io/';
+var home_Path = 'http://localhost:4000/';
 var userAgent = window.navigator.userAgent.toLowerCase();
 // console.log(userAgent);
 var norunAI = ["android", "iphone", "ipod", "ipad", "windows phone", "mqqbrowser", "msie", "trident/7.0"];
@@ -56,7 +56,6 @@ if (true) {
 				loadingNum++;
 				if (loadingNum === imgLength) {
 					var live2dhidden = localStorage.getItem("live2dhidden");
-					console.log(live2dhidden)
 					if (live2dhidden === "0") {
 						$('#live2d').css("display", "none");
 						$('.message').css("display", "none");

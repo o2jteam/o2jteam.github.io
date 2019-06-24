@@ -147,34 +147,29 @@
   // lazyload
   $(".lazy").lazyload();
 
+  // "width": $(".content").width() + 18 + "px",
   //页面加载执行事件
   $(document).ready(function ($) {
-    if ($("body").width() > 1200) {
+    if ($("body").width() >= 1200) {
       $(".o2jbox").css({
-        width: $(".content").width() + 18 + "px"
-      }, {
-        "overflow-y": "scroll"
-      });
-      $(".o2jbox").css({
-        "overflow-y": "scroll"
+        "overflow-y": "scroll",
+        "overflow-x": "hidden"
       });
     } else {
-      $(".o2jbox").css("width", "100%");
       $(".o2jbox").css({
+        "width": "100%",
         "overflow-y": "scroll"
       });
     }
     $(window).resize(function () {
-      if ($("body").width() > 1200) {
+      if ($("body").width() >= 1200) {
         $(".o2jbox").css({
-          width: $(".content").width() + 18 + "px"
-        });
-        $(".o2jbox").css({
-          "overflow-y": "scroll"
+          "overflow-y": "scroll",
+          "overflow-x": "hidden"
         });
       } else {
-        $(".o2jbox").css("width", "100%");
         $(".o2jbox").css({
+          "width": "100%",
           "overflow-y": "scroll"
         });
       }
@@ -290,41 +285,8 @@
 
       sessionStorage.setItem("historytop", moveY + sY - startY);
       sessionStorage.setItem("historyleft", moveX + sX - startX);
-    },
-    mousedown: function (ev) {
-      var patch = parseInt($(this).css("height")) / 2;
-      //console.log(patch);
-      $(this).mousemove(function (ev) {
-        var oEvent = ev || event;
-        //console.log(oEvent.target);
-        var oX = oEvent.clientX;
-        var oY = oEvent.clientY;
-        var t = oY - patch;
-        var l = oX - patch;
-        var w = $(window).width() - $(this).width();
-        var h = $(window).height() - $(this).height();
-        if (t < 0) {
-          t = 0;
-        }
-        if (l < 0) {
-          l = 0;
-        }
-        if (t > h) {
-          t = h;
-        }
-        if (l > w) {
-          l = w;
-        }
-
-        $(this).css({
-          top: t,
-          left: l
-        });
-      });
-      $(this).mouseup(function () {
-        $(this).unbind("mousemove");
-      });
     }
+
   });
 
   $("#menubtn").on("click", function () {
