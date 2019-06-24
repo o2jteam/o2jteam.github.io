@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta name="generator" content="Hexo 3.9.0">
+<head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
   
@@ -50,13 +50,13 @@
         <article class="archive-article archive-type-post">
   <div class="archive-article-inner">
     <header class="archive-article-header">
-      <a href="/post/hello-world/" class="archive-article-date">
-  <time datetime="2019-06-17T02:06:18.893Z" itemprop="datePublished">06/17</time>
+      <a href="/post/course description/" class="archive-article-date">
+  <time datetime="2019-06-22T08:01:26.059Z" itemprop="datePublished">06/22</time>
 </a>
       
   
     <h2 itemprop="name">
-      <a class="archive-article-title" href="/post/hello-world/">Hello World</a>
+      <a class="archive-article-title" href="/post/course description/">小泊陪你学前端</a>
     </h2>
   
 
@@ -71,7 +71,7 @@
     
   
   
-</section>
+</article></section>
         <footer class="footer">
   
   <div class="outer">
@@ -91,10 +91,25 @@
 
       </div>
     </main>
+    <div id="landlord">
+      <div class="message" style="opacity:0"></div>
+      <canvas id="live2d" width="500" height="560" class="live2d"></canvas>
+      <input name="live_talk" id="live_talk" value="1" type="hidden" />
+      <div class="live_ico_box">
+        <div class="live_ico_item type_info" id="menubtn"></div>
+        <!-- <div class="live_ico_item type_info" id="showInfoBtn"></div> -->
+        <div class="live_ico_item type_talk" id="showTalkBtn"></div>
+        <div class="live_ico_item type_music" id="musicButton"></div>
+        <div class="live_ico_item type_youdu" id="youduButton"></div>
+        <div class="live_ico_item type_quit" id="hideButton"></div>
+        <input name="live_statu_val" id="live_statu_val" value="0" type="hidden" />
+        <audio src="" style="display:none;" id="live2d_bgm" data-bgm="0" preload="none"></audio>
+        <input name="live2dBGM" value="https://www.itsolotime.com/music/qnxt.mp3" type="hidden">
+        <input id="duType" value="douqilai,l2d_caihong" type="hidden">
+      </div>
+    </div>
     <aside class="sidebar">
-      <button class="navbar-toggle"></button>
-
-<nav class="navbar">
+      <nav class="navbar">
   
   <div class="logo">
     <a href="/"><img src="https://avatars2.githubusercontent.com/u/50328824?s=200&v=4" alt="obj前端团队"></a>
@@ -149,10 +164,12 @@
 </nav>
 
 <div class="search-form-wrap">
-  <div class="local-search local-search-plugin">
-  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
-  <div id="local-search-result" class="local-search-result"></div>
-</div>
+    <div class="local-search local-search-plugin">
+    <div class="o2jsearch">
+      <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+      <div id="local-search-result" class="local-search-result"></div>
+    </div>
+  </div>
 </div>
     </aside>
     <script src="/js/jquery-2.0.3.min.js"></script>
@@ -160,15 +177,16 @@
 <script src="/js/busuanzi-2.3.pure.min.js"></script>
 
 
-  <script src="/fancybox/jquery.fancybox.min.js"></script>
+<script src="/fancybox/jquery.fancybox.min.js"></script>
 
 
 
-  <script src="/js/search.js"></script>
+<script src="/js/search.js"></script>
 
-
+<script src="/js/layer.js"></script>
+<script src="/js/live2d.js"></script>
+<script src="/js/message.js"></script>
 <script src="/js/ocean.js"></script>
-
   </div>
 
 </body>

@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[小泊陪你学前端]]></title>
+    <url>%2Fpost%2Fcourse%20description%2F</url>
+    <content type="text"><![CDATA[因为心无所恃，所以才随遇而安 ​​。​ 写在前面最近博客改版了，改版到今天虽然还没有全部完成，但是大体框架都已经搭建好了，还剩下一些功能的优化和美工，也急不得在一时，布局对于小泊稍有强迫症的人简直是一种煎熬…小泊开博客很久了，但是一直也没有好好搞过，以前工作比较忙，出差也比较多，所以有的时候想写点，说点什么累的也就没什么心情了。最近正好在静下心的学习一些关于前端的知识，看着新版博客的内容“空空如野”小泊就有了些想写一个原创系列课程”小泊陪你学前端”的想法。 但是依照小泊的性格，也不知道能够坚持多久，但是小泊会努力坚持下去的！ 说说课程简单的介绍下课程，小泊决定前期的课程分为4个部分，分别是”HTML、CSS、Javascript、Jquery”，当然会有中期和后期，这个顺序也是按照小泊学习的过程来的，前期相对于比较基础。其中也会包含一些工具（SVN,Git,WebStorm等）的安装、使用介绍。 偶尔也会和大家一起看看”有趣”的前端代码和新闻。 表现形式表现的形式会有：基础概念+代码+演示demo+原创视频（大部分含有）+动态图片 课程地址：1、博客：小泊随記2、Github：piaoxiaobo如果大家可以接受或者喜欢小泊的课程，麻烦朋友们在GitHub上给个star~ 联系小泊email：643209899@qq.com 特别提醒小泊也不可能做到百分百不出错，但是会尽力在发布之前反复论证，如果有错误，也希望大家多多见谅/调皮]]></content>
+      <categories>
+        <category>原创课程</category>
+      </categories>
+      <tags>
+        <tag>前端开发</tag>
+        <tag>原创</tag>
+        <tag>小泊陪你学前端</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Hello World]]></title>
     <url>%2Fpost%2Fhello-world%2F</url>
     <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
@@ -9,6 +22,207 @@
       </categories>
       <tags>
         <tag>ss</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[向前台传送json文件信息的webscoket示例]]></title>
+    <url>%2Fpost%2Fwebsocket%20demo%2F</url>
+    <content type="text"><![CDATA[爱就要大声说出来。 websocket简介WebSocket是HTML5开始提供的一种在单个 TCP 连接上进行全双工通讯的协议。 在WebSocket API中，浏览器和服务器只需要做一个握手的动作，然后，浏览器和服务器之间就形成了一条快速通道。两者之间就直接可以数据互相传送。 浏览器通过 JavaScript 向服务器发出建立 WebSocket 连接的请求，连接建立以后，客户端和服务器端就可以通过 TCP 连接直接交换数据。 当你获取 Web Socket 连接后，你可以通过 send() 方法来向服务器发送数据，并通过 onmessage 事件来接收服务器返回的数据。 html代码1234567891011121314151617181920212223242526272829303132333435363738394041424344454647&lt;!DOCTYPE HTML&gt; &lt;html&gt;&lt;head&gt; &lt;meta charset=&quot;utf-8&quot; /&gt; &lt;title&gt;websocket示例&lt;/title&gt; &lt;style type=&quot;text/css&quot;&gt; &lt;/style&gt;&lt;/head&gt;&lt;body&gt; &lt;div id=&quot;connected&quot;&gt; &lt;/div&gt; &lt;script type=&quot;text/javascript&quot;&gt; var onOpen = function() &#123; console.log(&quot;Socket opened.&quot;); socket.send(&quot;Hi, Server!&quot;); &#125;, onClose = function() &#123; console.log(&quot;Socket closed.&quot;); &#125;, onMessage = function(data) &#123; console.log(&quot;We get signal:&quot;); //转换成json数据 console.log(JSON.parse(data.data)); //数据测试 var a =document.getElementById(&apos;connected&apos;); a.append(data.data) &#125;, onError = function() &#123; console.log(&quot;We got an error.&quot;); &#125;, //通讯地址 socket = new WebSocket(&quot;ws://127.0.0.1:8080/&quot;); socket.onopen = onOpen; socket.onclose = onClose; socket.onerror = onError; socket.onmessage = onMessage; &lt;/script&gt;&lt;/body&gt;&lt;/html&gt; JS代码1234567891011121314151617var WebSocketServer = require(&apos;ws&apos;).Server;var wss = new WebSocketServer(&#123; port: 8080 &#125;);wss.on(&apos;connection&apos;, function connection(ws) &#123; ws.on(&apos;message&apos;, function incoming(message) &#123; console.log(&apos;received: %s&apos;, message); &#125;); //引入json数据 const data = require(&apos;./data/server.json&apos;); //转换数据类型 var demo =JSON.stringify(data); console.log(typeof demo); //发送数据 ws.send(demo);&#125;); 完整代码传送门：https://github.com/piaoxiaobo/websocket_demo帮助到你记得点个star哦~~ 联系小泊email：643209899@qq.com]]></content>
+      <categories>
+        <category>工具箱</category>
+      </categories>
+      <tags>
+        <tag>原创</tag>
+        <tag>websocket</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[React实现一个简单的"ToDoList"]]></title>
+    <url>%2Fpost%2Freact%20todolist%2F</url>
+    <content type="text"><![CDATA[一句话，想起了很多往事。 简述今天，我们利用React来实现一个简单的”ToDoList”功能，可以进行数据动态的添加。 HTML结构1&lt;div id=&quot;xbsj&quot;&gt;&lt;/div&gt; JS代码1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374&lt;script type=&quot;text/javascript&quot; src=&quot;../js/react.development.js&quot;&gt;&lt;/script&gt;&lt;script type=&quot;text/javascript&quot; src=&quot;../js/react-dom.development.js&quot;&gt;&lt;/script&gt;&lt;script type=&quot;text/javascript&quot; src=&quot;../js/babel.min.js&quot;&gt;&lt;/script&gt;&lt;script type=&quot;text/babel&quot;&gt; //主体组件 class App extends React.Component &#123; constructor(props)&#123; super(props); this.state = &#123; tdlist:[&apos;吃饭&apos;,&apos;睡觉&apos;,&apos;打豆豆&apos;] &#125; &#125; add = (newtodo) =&gt; &#123; let &#123;tdlist&#125; = this.state tdlist.unshift(newtodo) this.setState(&#123;tdlist&#125;) &#125; render()&#123; let &#123;tdlist&#125; = this.state; return( &lt;div&gt; &lt;h1&gt;小泊随記Todolist&lt;/h1&gt; &lt;Addtodolist add=&#123;this.add&#125; length=&#123;tdlist.length&#125;/&gt; &lt;Todolist tdlist=&#123;tdlist&#125; /&gt; &lt;/div&gt; ) &#125; &#125; //添加组件 class Addtodolist extends React.Component &#123; addtodolists =() =&gt;&#123; let result= this.inputDOM.value; if(!result.trim())&#123; return; &#125; this.props.add(result); this.inputDOM.value =&apos;&apos; &#125; render()&#123; let &#123;length&#125; = this.props return( &lt;div&gt; &lt;input type=&quot;text&quot; ref=&#123; input =&gt;&#123;this.inputDOM = input&#125; &#125;/&gt; &lt;button onClick=&#123;this.addtodolists&#125; &gt;Add #&#123;length&#125;&lt;/button&gt; &lt;/div&gt; ) &#125; &#125; //数据显示组件 class Todolist extends React.Component &#123; render()&#123; let &#123;tdlist&#125; = this.props console.log(this.props) return( &lt;ul&gt; &#123; tdlist.map((arrs,index) =&gt; &lt;li key=&#123;index&#125;&gt;&#123;arrs&#125;&lt;/li&gt;) &#125; &lt;/ul&gt; ) &#125; &#125; ReactDOM.render(&lt;App a=&quot;qq&quot;/&gt;, document.getElementById(&apos;xbsj&apos;));&lt;/script&gt; 引入JS下载地址 联系小泊email：643209899@qq.com]]></content>
+      <categories>
+        <category>React</category>
+      </categories>
+      <tags>
+        <tag>原创</tag>
+        <tag>React</tag>
+        <tag>ToDolist</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[报错：CreateProcess failed...解决]]></title>
+    <url>%2Fpost%2FWebstorm%20error%2F</url>
+    <content type="text"><![CDATA[路还很长，慢慢走，不要怕… 情况说明今天在运行项目的时候使用“run xxx.js”时Webstorm报错为：CreateProcess failed with error 2: ϵͳ Ҳ ָ ļ ，纠结了半天，终于找到了问题所在，现在分享给大家。 报错报错内容1CreateProcess failed with error 2: ϵͳ Ҳ ָ ļ 解决办法将项目根目录下的“.idea”文件夹删除，重新启动webstorm。 或者使用node命令启动该项目。 恢复正常 联系小泊email：643209899@qq.com]]></content>
+      <categories>
+        <category>报错信息</category>
+      </categories>
+      <tags>
+        <tag>Webstorm</tag>
+        <tag>原创</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[GifCam使用方法]]></title>
+    <url>%2Fpost%2FGIFcam%20usage%2F</url>
+    <content type="text"><![CDATA[失望是一点点积累的，离开是个很长的决定。 工具说明生活中，有的时候我们经常看到GIF格式的动态图片，很有趣而且很实用，今天小泊推荐给大家一款GIF图片录制软件，使用起来也十分的简单和方便。 GifCam是一款操作非常简单、界面非常简洁明了的GIF录制软件。它能够非常轻松的录制你想要的动态gif图片，录制好了后还可以对其进行编辑，优化。在录制的过程中用户可以随时改变窗口大小、位置，在编辑的时候也可以查看每一帧，并且可以对其进行增加和删除。 使用方法1、首先，我们先打开gifcam，进入如下的软件界面，我们可以拖动GifCam的边框选取要录制的视频范围。 2、然后点击“录制”按钮，即可开始进行录制，需要停止后我们点击“停止”（开始录制后“录制”键变为“停止”）。 3、为用户提供了10FPS、16FPS、全屏幕、录制鼠标等多种不同的录制方式,用户可以根据自己的需要选择。 4、其还为用户提供了单帧功能。 5、我们还可以点击”编辑”按钮对GIF动图进行编辑。 6、如图，进入了如下所示的编辑窗口。 7、我们移动至需要编辑的“帧”，然后鼠标右击界面，根据自己的需要选择删除、添加文本、裁剪、添加反向帧等操作！ 8、完成后，我们将其进行保存即可。 9、在保存的下拉菜单中其能够支持量化、邻近、256色、20色、灰阶等功能。 调速：在录制里面的自定义中进行调速，fps就是每秒播放的帧数，调整这个就可以调节速度了。 下载地址GIFcam中文版下载：点击下载 联系小泊email：643209899@qq.com]]></content>
+      <categories>
+        <category>工具箱</category>
+      </categories>
+      <tags>
+        <tag>工具</tag>
+        <tag>GIF编辑</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[几道常见的JavaScript面试题]]></title>
+    <url>%2Fpost%2Felement-tabs-problem%2F</url>
+    <content type="text"><![CDATA[生来不喜帝王色，偏惜南山一缕风。 今天看到几个比较常见的关于Javascript知识方面的面试题，一起和大家分享下~ 考察“原型链”12345678910111213141516&lt;script type=&quot;text/javascript&quot;&gt; var F = function()&#123;&#125;; Object.prototype.a = function()&#123; console.log(&apos;a()&apos;) &#125;; Function.prototype.b = function()&#123; console.log(&apos;b()&apos;) &#125;; var f = new F(); F.a(); F.b(); f.a(); f.b();&lt;/script&gt; 分别打印：F.a(); F.b(); f.a(); f.b();的值 首先，我们来明确一下“原型链”的概念：12341. 访问一个对象的属性时，先在自身属性中查找，找到返回2. 如果没有, 再沿着__proto__这条链向上查找, 找到返回3. 如果最终没找到, 返回undefined4. __proto__这条原型查找链就是原型链: 隐式原型链 通过概念，我们来确定每个函数对象的值 F.a();我们可以将F.a()拆开来看，F我们可以将它理解为1个对象，a()可以看成它的属性。从代码中我们可以得知，F明显被定义为一个“函数”，所以“F.a()”为一个函数对象。 对象F首先在自身属性中查找”a”的属性，结果自身中没有该属性，则继续沿着原型链继续向上找，我们已知F为函数，则所有的函数均来自于“Function”，继续向“Function”显式原型中去找。 在“Function”的显式原型中并没有该“a”属性，所以将继续沿着原型链往上一级找，在“Object”中的显式原型中含有“a”属性，所以打印值为“a（）” F.b();同理，在沿着原型链寻找“b”属性时，在“Function”中含有，则直接打印值为“b()” f.a();首先通过 “var f = new F();” 我们可知，f即为一个普通的对象，当在沿着原型链查找时，直接在“Object”中的显式原型中查找，含有则打印为“a();” f.b();同理，在去原型链中寻找时，在“Object”中的显式原型中并未含有，则返回报错（我们可以先理解f.b为undefined，undefined调用的报错）：Uncaught TypeError: f.b is not a function 这一道题很贴切的考察了对于“原型链”的理解。 考察“预处理/预解析过程”1234if (!(b in window)) &#123; var b = 1;&#125;console.log(b) 打印：b的值。 当在浏览器中预解析时，“var”首先提升变量，只是定义变量b，但并未赋值，此时的b的值为“undefined”，当预解析结束，当代码开始执行时，“b”在全局window变量中，此时“!”取反，则不进“if”条件语句，console.log(undefined)的值为“undefined”。 考察“作用域”123456var obj = &#123; fn2: function () &#123; console.log(fn2) &#125;&#125;obj.fn2() 打印“fn2”的值 这里我们要分清楚代码含义，定义的“obj”是一个对象，并不是一个“作用域”，在“obj”中含有一个属性“fn2”，在这里我们来打印的“fn2”明显是一个变量，所以我们要在当前作用域“function”中寻找“fn2”，未找到之后，到“全局作用域”window中寻找，全局作用域中也未找到则报错“Uncaught ReferenceError: fn2 is not defined” 延伸：如何解决报错呢？我们可以通过对象属性可以解决报错。123456var obj = &#123; fn2: function () &#123; console.log(obj.fn2) &#125;&#125;obj.fn2() 或者123456var obj = &#123; fn2: function () &#123; console.log(this.fn2) &#125;&#125;obj.fn2()]]></content>
+      <categories>
+        <category>技术分享</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>面试题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[几道常见的JavaScript面试题]]></title>
+    <url>%2Fpost%2Fjs%20tests%2F</url>
+    <content type="text"><![CDATA[生来不喜帝王色，偏惜南山一缕风。 今天看到几个比较常见的关于Javascript知识方面的面试题，一起和大家分享下~ 考察“原型链”12345678910111213141516&lt;script type=&quot;text/javascript&quot;&gt; var F = function()&#123;&#125;; Object.prototype.a = function()&#123; console.log(&apos;a()&apos;) &#125;; Function.prototype.b = function()&#123; console.log(&apos;b()&apos;) &#125;; var f = new F(); F.a(); F.b(); f.a(); f.b();&lt;/script&gt; 分别打印：F.a(); F.b(); f.a(); f.b();的值 首先，我们来明确一下“原型链”的概念：12341. 访问一个对象的属性时，先在自身属性中查找，找到返回2. 如果没有, 再沿着__proto__这条链向上查找, 找到返回3. 如果最终没找到, 返回undefined4. __proto__这条原型查找链就是原型链: 隐式原型链 通过概念，我们来确定每个函数对象的值 F.a();我们可以将F.a()拆开来看，F我们可以将它理解为1个对象，a()可以看成它的属性。从代码中我们可以得知，F明显被定义为一个“函数”，所以“F.a()”为一个函数对象。 对象F首先在自身属性中查找”a”的属性，结果自身中没有该属性，则继续沿着原型链继续向上找，我们已知F为函数，则所有的函数均来自于“Function”，继续向“Function”显式原型中去找。 在“Function”的显式原型中并没有该“a”属性，所以将继续沿着原型链往上一级找，在“Object”中的显式原型中含有“a”属性，所以打印值为“a（）” F.b();同理，在沿着原型链寻找“b”属性时，在“Function”中含有，则直接打印值为“b()” f.a();首先通过 “var f = new F();” 我们可知，f即为一个普通的对象，当在沿着原型链查找时，直接在“Object”中的显式原型中查找，含有则打印为“a();” f.b();同理，在去原型链中寻找时，在“Object”中的显式原型中并未含有，则返回报错（我们可以先理解f.b为undefined，undefined调用的报错）：Uncaught TypeError: f.b is not a function 这一道题很贴切的考察了对于“原型链”的理解。 考察“预处理/预解析过程”1234if (!(b in window)) &#123; var b = 1;&#125;console.log(b) 打印：b的值。 当在浏览器中预解析时，“var”首先提升变量，只是定义变量b，但并未赋值，此时的b的值为“undefined”，当预解析结束，当代码开始执行时，“b”在全局window变量中，此时“!”取反，则不进“if”条件语句，console.log(undefined)的值为“undefined”。 考察“作用域”123456var obj = &#123; fn2: function () &#123; console.log(fn2) &#125;&#125;obj.fn2() 打印“fn2”的值 这里我们要分清楚代码含义，定义的“obj”是一个对象，并不是一个“作用域”，在“obj”中含有一个属性“fn2”，在这里我们来打印的“fn2”明显是一个变量，所以我们要在当前作用域“function”中寻找“fn2”，未找到之后，到“全局作用域”window中寻找，全局作用域中也未找到则报错“Uncaught ReferenceError: fn2 is not defined” 延伸：如何解决报错呢？我们可以通过对象属性可以解决报错。123456var obj = &#123; fn2: function () &#123; console.log(obj.fn2) &#125;&#125;obj.fn2() 或者123456var obj = &#123; fn2: function () &#123; console.log(this.fn2) &#125;&#125;obj.fn2()]]></content>
+      <categories>
+        <category>技术分享</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>面试题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[小泊随記Chrome插件[持续更新中...]]]></title>
+    <url>%2Fpost%2Fchrome%20plug%2F</url>
+    <content type="text"><![CDATA[因为心无所恃，所以才随遇而安​​。 这几天和一个朋友闲聊的时候，朋友调侃说在开发的时候，有些工具的“命令”记不大住，来回找很麻烦也很费时间，所以就随手做了一个“chrome浏览器插件”（ps：因为朋友开发的时候要持续打开chrome。），里面集成了一些功能，可以快速的查找一些“命令”。当然其他的功能也在不断的完善中… 小泊随記Chrome插件助手 v1.0.0author: 卞荣成description: 命令查询等version：V1.0.0first publish： 小泊随記state: 持续完善中…盗版必究，错误或建议[请留言] 下载地址官方下载地址1：https://www.itsolotime.com/down/xbsjchrome.zip官方下载地址2：https://www.itsolotime.com/down/xbsjchrome.crx百度网盘下载地址：https://pan.baidu.com/s/1jJqMRNg 密码：lt4o 使用说明下载文件.zip文件使用(推荐使用此方法)1、解压文件2、打开chrome浏览器的拓展工具或者直接在地址栏中输入“chrome://extensions/”3、勾选“开发者模式”4、选择“加载已解压的拓展程序”，选择解压的文件夹，点击确定5、取消“取消开发者模式”6、点击“右上角图标”使用 如果不想使用可以“移除”或者取消“启用” .crx文件使用1、打开chrome浏览器的拓展工具或者直接在地址栏中输入“chrome://extensions/” 2、将crx文件直接拖入 3、点击“右上角图标”使用]]></content>
+      <categories>
+        <category>chrome</category>
+      </categories>
+      <tags>
+        <tag>原创</tag>
+        <tag>chrome</tag>
+        <tag>插件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[小泊随記chrome插件命令簿]]></title>
+    <url>%2Fpost%2Fxbsj%20chrome%20command%2F</url>
+    <content type="text"><![CDATA[恨尽天下多陌路，喜上心头难自数。 author: 卞荣成first publish： 小泊随記chrome插件state: 持续完善中…reminder: 关键字搜索请使用快捷键 Ctrl+F盗版必究，错误或建议请留言 导航点击可快速访问1.windows命令 1.1 cmd简介 1.2 常用命令 1.2.1 打开cmd 1.2.2 对文件操作 1.2.3 网络命令 1.2.4 工具命令 1.2.5 FTP 1.2.6 Mysql2.linux命令 2.1 系统信息 2.2 关机，开机，登出 2.3 文件和目录3.Git命令4.Npm命令5.mongoDB命令6.其他 windows命令 cmd简介cmd是command的缩写，即为命令行。 常用命令 打开cmd1常规：开始 → 运行 → 键入cmd 1快捷键： win + R → 键入cmd 1exit 退出当前命令行 1start cmd 在当前命令行创建一个新的命令行 1cls 清空当前命令行内容 1ctrl + c 取消当前命令 1color \ 设置窗口的前景背景色 对文件操作dir1dir 查看当前所在文件目录的文件和文件夹 1dir /s 查看当前目录已经其所有子目录的文件和文件夹。 1dir /a 查看包括隐含文件的所有文件。 1dir /ah 只显示出隐含文件。 1dir /w 以紧凑方式（一行显示5个文件）显示文件和文件夹。 1dir /p 以分页方式（显示一页之后会自动暂停）显示。 1dir /? 其他dir参数说明 cd1cd 目录名 进入特定的目录 1cd \ 退回到根目录 1cd .. 返回上一级目录 1c: 进入c盘根目录 1d: 进入d盘根目录 1e: 进入e盘根目录 1... md1md 文件夹名 创建文件夹 1md .文件夹名 创建一个开头为.的文件夹 1md c:\test\demo 在C盘目录下创建一个含有demo文件夹的test文件夹 rd1rd 文件夹名 删除空文件夹 1rd /s /q 文件夹名 删除含有文件的文件夹 1rd /s 文件夹名 删除时需要确认是否删除 file1type nul&gt;test.txt 创建一个test文本文件 1echo myname&gt;a.txt 创建一个内容为myname的a.txt文件 1del a.txt 删除a.txt文件 网络1ipconfig /all 查看当前设备网络相关的信息 1tracert ip地址 跟踪当前地址 1ncpa.cpl 打开方式：运行 → 键入ncpa.cpl 快速打开网络连接 1ping ip地址 检测本设备到该地址是否通畅 1ping ip地址 -t 持续访问该地址 netstat1netstat -a 查看开启了哪些端口,常用netstat -an 1netstat -n 查看端口的网络连接情况，常用netstat -an 1netstat -v 查看正在进行的工作 1netstat -p 协议名 例：netstat -p tcqip 查看某协议使用情况（查看tcpip协议使用情况） 1netstat -s 查看正在使用的所有协议使用情况 net1net user 用户名 密码 add 建立用户 1net user guest activeyes 激活guest用户 1net user 查看有哪些用户 1net user 帐户名 查看帐户的属性 1net localgroup administrators 用户名 add 把“用户”添加到管理员中使其具有管理员权限,注意：administrator后加s用复数 1net start 查看开启了哪些服务 1net start 服务名 开启服务；(如net start telnet， net start schedule) 1net stop 服务名 停止某服务 1net time 目标ip 查看对方时间 1net time 目标ip set 设置本地计算机时间与“目标IP”主机的时间同步,加上参数yes可取消确认信息 1net view 查看本地局域网内开启了哪些共享 1net view ip 查看对方局域网内开启了哪些共享 1net share 查看本地开启的共享 1net password 密码 更改系统登陆密码 工具1以下均在：开始 → 运行 中键入&quot;对应命令&quot; 1Nslookup IP地址侦测器 ，是一个 监测网络中 DNS 服务器是否能正确实现域名解析的命令行工具。 1explorer 资源管理器 1logoff 注销命令 1shutdown 60s倒计时关机命令 1lusrmgr.msc 本机用户和组 win10不可用/win7可用 1services.msc 本地服务设置 1notepad 打开记事本 1cleanmgr 磁盘清理 1compmgmt.msc 计算机管理 1calc 启动计算器 1devmgmt.msc 设备管理器 1regedt32 注册表编辑器 1winver 检查当前系统版本 1mspaint 打开画图工具 1mstsc 远程桌面连接 ftp1ftp 地址/url 连接到该ftp mysql1暂不提供，等待更新 linux命令 系统信息1arch 显示机器的处理器架构(1) 1uname -m 显示机器的处理器架构(2) 1uname -r 显示正在使用的内核版本 1dmidecode -q 显示硬件系统部件 - (SMBIOS / DMI) 1hdparm -i /dev/hda 罗列一个磁盘的架构特性 1hdparm -tT /dev/sda 在磁盘上执行测试性读取操作 1cat /proc/cpuinfo 显示CPU info的信息 1cat /proc/interrupts 显示中断 1cat /proc/meminfo 校验内存使用 1cat /proc/swaps 显示哪些swap被使用 1cat /proc/version 显示内核的版本 1cat /proc/net/dev 显示网络适配器及统计 1cat /proc/mounts 显示已加载的文件系统 1lspci -tv 罗列 PCI 设备 1lsusb -tv 显示 USB 设备 1date 显示系统日期 1cal 2007 显示2007年的日历表 1date 041217002007.00 设置日期和时间 - 月日时分年.秒 1clock -w 将时间修改保存到 BIOS 关机，重启，登出1shutdown -h now 关闭系统(1) 1init 0 关闭系统(2) 1telinit 0 关闭系统(3) 1shutdown -h hours:minutes &amp; 按预定时间关闭系统 1shutdown -c 取消按预定时间关闭系统 1shutdown -r now 重启(1) 1reboot 重启(2) 1logout 注销 文件和目录1cd /home 进入 &apos;/ home&apos; 目录&apos; 1cd .. 返回上一级目录 1cd ../.. 返回上两级目录 1cd 进入个人的主目录 1cd ~user1 进入个人的主目录 1cd - 返回上次所在的目录 1pwd 显示工作路径 1ls 查看目录中的文件 1ls -F 查看目录中的文件 1ls -l 显示文件和目录的详细资料 1ls -a 显示隐藏文件 1ls *[0-9]* 显示包含数字的文件名和目录名 1tree 显示文件和目录由根目录开始的树形结构(1) 1lstree 显示文件和目录由根目录开始的树形结构(2) 1mkdir dir1 创建一个叫做 &apos;dir1&apos; 的目录&apos; 1mkdir dir1 dir2 同时创建两个目录 1mkdir -p /tmp/dir1/dir2 创建一个目录树 1rm -f file1 删除一个叫做 &apos;file1&apos; 的文件&apos; 1rmdir dir1 删除一个叫做 &apos;dir1&apos; 的目录&apos; 1rm -rf dir1 删除一个叫做 &apos;dir1&apos; 的目录并同时删除其内容 1rm -rf dir1 dir2 同时删除两个目录及它们的内容 1mv dir1 new_dir 重命名/移动 一个目录 1cp file1 file2 复制一个文件 1cp dir/* . 复制一个目录下的所有文件到当前工作目录 1cp -a /tmp/dir1 . 复制一个目录到当前工作目录 1cp -a dir1 dir2 复制一个目录 1ln -s file1 lnk1 创建一个指向文件或目录的软链接 1ln file1 lnk1 创建一个指向文件或目录的物理链接 1touch -t 0712250000 file1 修改一个文件或目录的时间戳 - (YYMMDDhhmm) 其他暂不更新 Git命令 转载阮一峰博文 1234Workspace：工作区Index / Stage：暂存区Repository：仓库区（或本地仓库）Remote：远程仓库 在当前目录新建一个Git代码库1$ git init 新建一个目录，将其初始化为Git代码库1$ git init [project-name] 下载一个项目和它的整个代码历史1$ git clone [url] 1234567891011Git的设置文件为.gitconfig，它可以在用户主目录下（全局配置），也可以在项目目录下（项目配置）。# 显示当前的Git配置$ git config --list# 编辑Git配置文件$ git config -e [--global]# 设置提交代码时的用户信息$ git config [--global] user.name &quot;[name]&quot;$ git config [--global] user.email &quot;[email address]&quot; 增加/删除文件123456789101112131415161718192021# 添加指定文件到暂存区$ git add [file1] [file2] ...# 添加指定目录到暂存区，包括子目录$ git add [dir]# 添加当前目录的所有文件到暂存区$ git add .# 添加每个变化前，都会要求确认# 对于同一个文件的多处变化，可以实现分次提交$ git add -p# 删除工作区文件，并且将这次删除放入暂存区$ git rm [file1] [file2] ...# 停止追踪指定文件，但该文件会保留在工作区$ git rm --cached [file]# 改名文件，并且将这个改名放入暂存区$ git mv [file-original] [file-renamed] 代码提交123456789101112131415161718# 提交暂存区到仓库区$ git commit -m [message]# 提交暂存区的指定文件到仓库区$ git commit [file1] [file2] ... -m [message]# 提交工作区自上次commit之后的变化，直接到仓库区$ git commit -a# 提交时显示所有diff信息$ git commit -v# 使用一次新的commit，替代上一次提交# 如果代码没有任何新变化，则用来改写上一次commit的提交信息$ git commit --amend -m [message]# 重做上一次commit，并包括指定文件的新变化$ git commit --amend [file1] [file2] ... 分支123456789101112131415161718192021222324252627282930313233343536373839404142# 列出所有本地分支$ git branch# 列出所有远程分支$ git branch -r# 列出所有本地分支和远程分支$ git branch -a# 新建一个分支，但依然停留在当前分支$ git branch [branch-name]# 新建一个分支，并切换到该分支$ git checkout -b [branch]# 新建一个分支，指向指定commit$ git branch [branch] [commit]# 新建一个分支，与指定的远程分支建立追踪关系$ git branch --track [branch] [remote-branch]# 切换到指定分支，并更新工作区$ git checkout [branch-name]# 切换到上一个分支$ git checkout -# 建立追踪关系，在现有分支与指定的远程分支之间$ git branch --set-upstream [branch] [remote-branch]# 合并指定分支到当前分支$ git merge [branch]# 选择一个commit，合并进当前分支$ git cherry-pick [commit]# 删除分支$ git branch -d [branch-name]# 删除远程分支$ git push origin --delete [branch-name]$ git branch -dr [remote/branch] push本地的更新123git add *git commit -m &quot;log日志&quot;git push origin master 克隆github上的项目1git clone &quot;指定的仓库地址&quot; pull远程的更新1git pull origin master 撤销本地修改123git status 查看变化git checkout -- xxx文件 撤销指定文件的修改git pull origin master 保留本地修改123git add *git commit -m &quot;log日志&quot;git pull origin master Npm命令 常用命令1234567891011121314npm init 生成package.jsonnpm install 用来安装package.json里的相关依赖包npm install packageName -g(全局安装)npm install packageName --save 安装包(局部安装---运行依赖)npm install packageName@version --save 安装指定版本的包(局部安装)npm install packageName --save-dev(局部安装--开发依赖)npm info packageName (显示包的信息)npm rm packageName (移除包)npm config get prefix (获取全局安装包的所在地址,并且可见对应的cmd命令)npm -v 查看当前npm的版本npm version 查看npm的相关的模块版本npm search/s 关键字 搜索相关的包npm install/i 包名 在当前项目下安装指定的包npm remove/r 包名 从当前项目中移除指定的包 cnmp(淘宝镜像)1234将npm上的包同步更新到淘宝镜像上，目前是每10分钟同步一次。配置：npm install -g cnpm --registry=https://registry.npm.taobao.org修改仓库地址为npm地址：npm config set registry https://registry.npmjs.org/常用命令：使用 cnpm 代替 npm 即可 mongoDB命令 常用命令启动服务器1mongod --dbpath --port 启动客户端1mongo 数据库的指令1234567show dbs 显示所有的数据库use 数据库名 进入到指定的数据库db 表示当前所在的数据库show collections 显示当前数据库中所有的集合``` &lt;h5&gt;增删改查的操作&lt;/h5&gt;插入 db.collection.insert() 向集合中插入一个或多个文档db.collection.insertOne() 向集合中插入一个文档db.collection.insertMany() 向集合中插入多个文档1&lt;h5&gt;查询&lt;/h5&gt; db.collection.find() 查询集合中所有符合条件的文档db.collection.findOne() 查询集合中符合条件的第一个文档db.collection.count() 统计集合中符合条件的文档的数量1&lt;h5&gt;修改&lt;/h5&gt; db.collection.update() 修改或替换集合中的一个或多个文档db.collection.updateOne() 修改集合中的一个文档db.collection.updateMany() 修改集合中的多个文档db.collection.replaceOne() 替换集合中的文档1&lt;h5&gt;删除&lt;/h5&gt; 开发中删除的操作使用的比较少db.collection.remove() 删除集合中的一个或多个文档db.collection.deleteOne() 删除集合中的一个文档db.collection.deleteMany() 删除集合中的多个文档db.collection.drop() 删除集合db.dropDatabase() 删除数据库` 其他 更新中，敬请期待…]]></content>
+      <categories>
+        <category>chrome</category>
+      </categories>
+      <tags>
+        <tag>原创</tag>
+        <tag>chrome</tag>
+        <tag>插件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[利用ajax实现收货地址三级联动]]></title>
+    <url>%2Fpost%2Freceiver%20address%2F</url>
+    <content type="text"><![CDATA[我一直都在，而你却悄然离去。 情景说明在我们日常购物（像淘宝，京东，美团等）或者注册某些网站的会员时，需要我们来填写地址，像省、市、县可以直接在下拉列表中选择，那么像这种“地址三级联动”怎么实现的呢？今天我们就通过ajax的技术，来模拟做一个地址的三级联动的功能。 HTML结构这里我们就简单的写一下结构，不进行样式（CSS）的渲染，后期可以进行样式的优化123456789101112131415161718&lt;!DOCTYPE html&gt;&lt;html lang=&quot;en&quot;&gt;&lt;head&gt; &lt;meta charset=&quot;UTF-8&quot;&gt; &lt;title&gt;收货地址三级联动&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;select id=&quot;selProvince&quot;&gt; &lt;option value=&quot;&quot;&gt;--请选择省份--&lt;/option&gt;&lt;/select&gt;&lt;select id=&quot;selCity&quot;&gt; &lt;option value=&quot;&quot;&gt;--请选择城市--&lt;/option&gt;&lt;/select&gt;&lt;select id=&quot;selCounty&quot;&gt; &lt;option value=&quot;&quot;&gt;--请选择区/县--&lt;/option&gt;&lt;/select&gt;&lt;/body&gt;&lt;/html&gt; 词条：option 标签 项目分析需求分析1、当页面打开（加载）的时候，省级下拉列表数据需要进行加载。2、当选择“某省”时，相对应的“市级”列表数据进行填充。3、当选择“某市”时，相对应的“区县”列表数据进行填充。4、当没有选择省级时，市县级无数据显示，同理，当没有选择市级时，区县级无数据显示。 json数据分析省级单位数据：123456789101112//直辖市数据&#123; &quot;id&quot;: &quot;2&quot;, &quot;province&quot;: &quot;北京市&quot;, &quot;parent&quot;: &quot;1&quot;&#125;,//普通省级单位数据&#123; &quot;id&quot;: &quot;36&quot;, &quot;province&quot;: &quot;河北省&quot;, &quot;parent&quot;: &quot;1&quot;&#125; 市级单位数据：123456789101112//直辖市数据&#123; &quot;id&quot;: &quot;2&quot;, &quot;city&quot;: &quot;北京市&quot;, &quot;parent&quot;: &quot;1&quot;&#125;,//省级下属市级单位数据&#123; &quot;id&quot;: &quot;37&quot;, &quot;city&quot;: &quot;石家庄市&quot;, &quot;parent&quot;: &quot;36&quot;&#125;, 区县级单位数据123456789101112//直辖市下属区单位数据&#123; &quot;id&quot;: &quot;3&quot;, &quot;county&quot;: &quot;东城区&quot;, &quot;parent&quot;: &quot;2&quot;&#125;,//普通市级下属区县单位数据&#123; &quot;id&quot;: &quot;41&quot;, &quot;county&quot;: &quot;新华区&quot;, &quot;parent&quot;: &quot;37&quot;&#125; 通过以上的数据我们可以分析获得：1、获取省级单位（含直辖市/自治区等）可以通过数据的“id”。2、省级单位获取对应市级单位可以通过：省级单位的id==市级单位的parent 需要注意的是：直辖市和自治区在对应关系上和普通省份是不同的，应当用id = id3、市级单位和区县级单位的关联关系（包含直辖市和自治区）符合市级单位的id == 区县级单位的parent bug分析1、可能会出现列表数据的紊乱，比如：市级列表中数据含有不同省对应的市级数据。 接口文档1、获取省级单位的数据 请求方式：GET 请求的url：’/getProvinces’（路由地址） 请求参数： 返回的数据格式：json 2、获取市级单位的数据 请求方式： POST 请求的url： ‘/getCities’（路由地址） 请求的参数: provinceId, 返回的数据格式: json 3、获取区/县单位的数据 请求方式： GET 请求的url： ‘/getCounties’（路由地址） 请求的参数: cityId, 返回的数据格式: json 服务器配置配置省级路由123456789//引入json数据（中国省市县数据）china_area.jsonvar chian_area = require(&apos;../china_area.json&apos;)//注册路由router.get(&apos;/getProvinces&apos; , funnction(req, res, next)&#123; //创建一个变量来保存china_area中的省级的数据 var provinces = china_area.provinces; //向客户端发送数据 res.send(provinces);&#125;); 配置市级路由1234567891011121314router.post(&apos;/getCities&apos; , funnction(req, res, next)&#123; //创建一个变量来保存省级数据的id var provinceId = req.body.provinceId; //创建一个空数组，用来存放获取到的市级数据 var citiesArr = []; //从china_area中获取市级数据并将其添加进空白数组 china_area.cities.forEach(funnction(city)&#123; //当市级的parent值和省级单位的id相等 或者 市级单位的id和省级单位的id相等（主要针对直辖市&amp;自治区） if(city.parent == provinceId || city.id == provinceId)&#123; citiesArr.push(city); &#125; &#125;); res.send(citiesArr);&#125;); 配置区县级的路由12345678910111213router.post(&apos;/getCounties&apos; , funnction(req, res, next)&#123; //获取市级单位的Id var cityId = req.query.cityId; //创建一个空数组，用来存放获取到的区县级数据 var countiesArr = []; china_area.counties.forEach(function (county) &#123; // 获取对应的市级单位的数据 if(county.parent == cityId)&#123; countiesArr.push(county); &#125; &#125;); res.send(countiesArr);&#125;); 客户端配置123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354&lt;!--引入jquery--&gt;&lt;script type=&quot;text/javascript&quot; src=&quot;../js/jquery-1.11.1.js&quot;&gt;&lt;/script&gt;&lt;script type=&quot;text/javascript&quot;&gt; $(function () &#123; var $selProvince = $(&apos;#selProvince&apos;); var $selCity = $(&apos;#selCity&apos;); var $selCounty = $(&apos;#selCounty&apos;); // 发送请求获取所有的省级单位的数据 $.ajax(&#123; type: &apos;GET&apos;, url: &apos;/getProvinces&apos;, success: function (provinces) &#123; provinces.forEach(function (province, index) &#123; //格外要注意拼串时的“空格” var provinceHtml = &apos;&lt;option value=&quot;&apos; + province.id +&apos;&quot;&gt;&apos; + province.province + &apos;&lt;/option&gt;&apos;; $selProvince.append(provinceHtml); &#125;) &#125; &#125;); $selProvince.change(function () &#123; // 移除之前的option(第一个除外)，防止切换省级单位引起的市级单位数据紊乱 $selCity.children().not(&apos;:first&apos;).remove(); $selCounty.children().not(&apos;:first&apos;).remove(); // 当前省级单位的id var provinceId = this.value; if(provinceId == &apos;&apos;)&#123; return; &#125; //市级单位 $.post(&apos;/getCities&apos;, &#123;provinceId: provinceId&#125;, function (cities) &#123; cities.forEach(function (city) &#123; var citiesHtml = &apos;&lt;option value=&quot;&apos; + city.id +&apos;&quot;&gt;&apos; + city.city + &apos;&lt;/option&gt;&apos;; $selCity.append(citiesHtml); &#125;) &#125;); &#125;); $selCity.change(function () &#123; $selCounty.children().not(&apos;:first&apos;).remove(); //当前市级单位的id var cityId = this.value; //区县级单位 $.getJSON(&apos;/getCounties&apos;, &#123;cityId: cityId&#125;, function (counties) &#123; counties.forEach(function (county, index) &#123; var countiesHtml = &apos;&lt;option value=&quot;&apos; + county.id +&apos;&quot;&gt;&apos; + county.county + &apos;&lt;/option&gt;&apos;; $selCounty.append(countiesHtml); &#125;) &#125;) &#125;); &#125;);&lt;/script&gt; 附件1、jquery-1.11.1.js下载2、china_area.json下载 联系小泊email：643209899@qq.com]]></content>
+      <categories>
+        <category>小功能</category>
+      </categories>
+      <tags>
+        <tag>原创</tag>
+        <tag>ajax</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[MongoDB的安装]]></title>
+    <url>%2Fpost%2FmongoDB%20usage%2F</url>
+    <content type="text"><![CDATA[工欲善其事必先利其器。 功能简述在本机利用MongoDB、Mongoose模拟搭建本地数据库，利用Express模拟搭建本地服务器，通过浏览器访问本地注册和登陆界面，实现用户的注册和登陆，并对用户数据进行简单的加密处理。 引读：数据库（Database）数据库是按照数据结构来组织、存储和管理数据的仓库。我们的程序都是在内存中运行的，一旦程序运行结束或者计算机断电，程序运行中的数据都会丢失。所以我们就需要将一些程序运行的数据持久化到硬盘之中，以确保数据的安全性。而数据库就是数据持久化的最佳选择。说白了，数据库就是存储数据的仓库。 数据库主要分成两种：关系型数据库MySQL、Oracle、DB2、SQL Server ……关系数据库中全都是表非关系型数据库MongoDB、Redis ……键值对数据库文档数据库MongoDB延伸：百度百科 MongoDB简介MongoDB是为快速开发互联网Web应用而设计的数据库系统。设计目标是极简、灵活、作为Web应用栈的一部分。MongoDB的数据模型是面向文档的，所谓文档是一种类似于JSON的结构，简单理解MongoDB这个数据库中存的是各种各样的JSON。（BSON）延伸百度百科 官网：https://www.mongodb.com/ ####下载安装 1、下载地址https://www.mongodb.org/dl/win32/MongoDB的版本偶数版本为稳定版，奇数版本为开发版。MongoDB对于32位系统支持不佳，所以3.2版本以后没有再对32位系统的支持。 2、安装 ①点击下一步，同意条约②选择默认完全安装还是自主安装这里建议选择默认安装，如果自主安装在选择安装目录时确保安装路径无中文字符③安装完成3、配置mongDB并启动①找到MongoDB安装路径，将其加入“环境变量”中1C:\Program Files\MongoDB\Server\3.2\bin 修改安装目录的将修改的安装目录地址加入环境变量的详细配置→https://www.itsolotime.com/blog/2018/01/25/node.js%20usage ②在c盘根目录下创建文件夹：datadata/db③打开命令行窗口，输入mongod启动数据库服务器 1mongod 注意：32位系统的用户，第一次启动时输入如下指令来启动服务器1mongod --storageEngine=mmapv1 ④出现如下内容，证明数据库服务器启动成功1waiting for connections on port 27017 4、启动MongoDB客户端注意：上一步的命令窗口不要关闭打开一个新的命令行窗口，输入mongo，来启动客户端1mongo 出现 connecting to: test 证明连接成功 其他配置1、如何自主修改MongoDB的存储位置和默认端口（不建议修改）1mongod --dbpath C:\Users\Zero\Desktop\mongo\data\db --port 12321 以上代码就是将存储位置指定到了“桌面的mongo文件夹中的data/db中”,端口将27017指定为了12321 2、配置windows系统启动项配置启动项将使每次开机后，数据库自动启动，不再人工的去启动数据库然后再去连接数据库客户端①在上文创建的data文件加下创建一个log文件夹②在mongo安装目录的server下3.x目录下创建mongod.cfg文件 安装在C盘目录下系统可能会出于自身保护，不允许在该目录下创建“mongod.cfg”文件，可在桌面创建好后移入即可。且创建文件时先创建一个文本文件，在文本中加入以下内容：12345systemLog: destination: file path: c:\data\log\mongod.log //如果更改目录位置请按照你更改的地址填入storage: dbPath: c:\data\db //如果更改目录位置请按照你更改的地址填入 文本创建完成后，将文本名称修改为mongod.cfg 注意：一定要将文件类型一并改过来，系统默认隐藏文件类型，需先将文件类型打开。这个是错误的：这个是正确的： ③管理员模式打开cmd窗口，并输入如下指令1sc.exe create MongoDB binPath= &quot;\&quot;mongo bin路径\mongod.exe\&quot; --service --config=\&quot;mongo路径\mongod.cfg\&quot;&quot; DisplayName= &quot;MongoDB&quot; start= &quot;auto&quot; 默认安装直接复制下面的代码1sc.exe create MongoDB binPath= &quot;\&quot;C:\Program Files\MongoDB\Server\3.2\bin\mongod.exe\&quot; --service --config=\&quot;C:\Program Files\MongoDB\Server\3.2\mongod.cfg\&quot;&quot; DisplayName= &quot;MongoDB&quot; start= &quot;auto&quot; ④打开任务管理器，进入服务的窗口，找到MongoDB服务项并启动⑤如果服务启动失败，输入如下指令 sc delete MongoDB 并关闭服务窗口 ⑥重复上述操作 ⑦如果启动成功即可打开cmd窗口验证，直接连接客户端 联系小泊email：643209899@qq.com]]></content>
+      <categories>
+        <category>工具箱</category>
+      </categories>
+      <tags>
+        <tag>原创</tag>
+        <tag>MongoDB</tag>
+        <tag>Node.js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Node.js介绍和安装]]></title>
+    <url>%2Fpost%2Fnode.js%20usage%2F</url>
+    <content type="text"><![CDATA[生活不只是眼前的苟且，还有诗和远方。 Node.js简介介绍Node.js是一个能够在服务器端运行JavaScript的开放源代码、跨平台JavaScript运行环境。采用Google开发的V8引擎运行js代码，使用事件驱动、非阻塞和异步I/O模型等技术来提高性能，可优化应用程序的传输量和规模。大部分基本模块都用JavaScript编写。在Node出现之前，JS通常作为客户端程序设计语言使用，以JS写出的程序常在用户的浏览器上运行。 目前，Node.js已被IBM、Microsoft、Yahoo!、Walmart、Groupon、SAP、 LinkedIn、Rakuten、PayPal、Voxer和GoDaddy等企业采用。Node主要用于编写像Web服务器一样的网络应用，这和PHP和Python是类似的。但是Node与其他语言最大的不同之处在于，PHP等语言是阻塞的而Node是非阻塞的。Node是事件驱动的，开发者可以在不使用线程的情况下开发出一个能够承载高并发的服务器。其他服务器端语言难以开发高并发应用，而且即使开发出来，性能也不尽人意。 创始人瑞安·达尔（Ryan Dahl）Ryan Dahl并非科班出身的开发者，在2004年的时候他还在纽约的罗彻斯特大学数学系读博士。 2006年，也许是厌倦了读博的无聊，他产生了『世界那么大，我想去看看』的念头，做出了退学的决定，然后一个人来到智利的Valparaiso小镇。 从那起，Ryan Dahl不知道是否因为生活的关系，他开始学习网站开发了，走上了“码农”的道路。 那时候Ruby on Rails很火，他也不例外的学习了它。 从那时候开始，Ryan Dahl的生活方式就是接项目，然后去客户的地方工作，在他眼中，拿工资和上班其实就是去那里旅行。 Ryan Dahl经过两年的工作后，成为了高性能Web服务器的专家，从接开发应用到变成专门帮客户解决性能问题的专家。 期间他开始写一些开源项目帮助客户解决Web服务器的高并发性能问题，他尝试了很多种语言，但是最终都失败了。在他快绝望的时候，V8引擎来了。V8满足他关于高性能Web服务器的想象。于是在2009年2月它开始着手编写Node.js Node.js历史 荐读：Node.js与io.js那些事儿 Node.js用途 Web服务API，比如REST 实时多人游戏 后端的Web服务，例如跨域、服务器端的请求 基于Web的应用 多客户端的通信，如即时通信 Node.js官网英文官网（访问需“翻墙”）：https://nodejs.org中文官网：http://nodejs.cn/ Node.JS的安装下载 官方下载地址：http://nodejs.cn/download/需要注意的是：版本号为偶数开头，即为稳定版本。版本号为奇数开头，即为开发版本。一般情况下，我们使用“稳定版” 安装1、双击安装包，点击下一步。 2、同意安装协议，选择安装目录。（安装目录可以更改，这里建议安装目录尽量不要有中文） 3、选择功能插件，建议默认全部安装，点击下一步。4、安装完成。 5、查看是否安装成功：-win7&amp;win10用户：打开“cmd”窗口，输入:1node -v 若有版本号输出，即为安装正确。 -“cmd”命令窗口打开的方法：快捷键：windows键（键盘空格左边第二个键）+ R 打开“运行”窗口，输入“cmd”确定即可打开。 目录打开：win7用户：点击“开始菜单”，查找“windows附件” - cmd命令窗口win10用户：点击“开始菜单”，查找“windows系统” - cmd命令窗口6、node.js目录结构 环境变量配置一般情况下，在安装node.js时，软件会自动的对“环境变量”进行配置。如果软件并未自动配置“环境变量”，在命令窗口中输入命令无法正常获取版本号，这时候，就需要我们手动来配置一下。 1、找到node.js安装目录1E:\nodejs 2、右键“我的电脑”，打开“属性”面板/win10用户打开“此电脑（改名的打开自己的名字）”3、打开高级系统设置中的环境变量 -也可以打开“控制面板” - “系统和安全” - “系统” - “高级系统设置 - “环境变量” 4、找到系统变量里的“path”，然后“编辑”-“添加”。-win10用户是列表，直接“双击列表空白行”，将node.js安装目录输入进去，点击确定即可。 -win7用户是“单行”，直接在内容的末尾添加“E:\nodejs;” 注意：一定要添加末尾的 ; 且为英文的 ;-如果你的“环境变量”中没有”Path”这个变量，直接自己新建一个即可。-如果“path”变量中已经设置很多值，一定注意不要“误删减”。1%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;%USERPROFILE%\AppData\Local\Microsoft\WindowsApps;F:\AppServ\Apache24\bin;F:\AppServ\php5;F:\AppServ\MySQL\bin;C:\Users\Zero\AppData\Roaming\npm;C:\Program Files\MongoDB\Server\3.2\bin;E:\nodejs 5、在cmd中再次输入正常即可。 联系小泊email：643209899@qq.com]]></content>
+      <categories>
+        <category>工具箱</category>
+      </categories>
+      <tags>
+        <tag>原创</tag>
+        <tag>Node.js</tag>
+        <tag>系统环境变量配置</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[linux软路由设置]]></title>
+    <url>%2Fpost%2Flinux%20route%2F</url>
+    <content type="text"><![CDATA[因为心无所恃，所以才随遇而安​​。 情况说明在很多情况下，当我们为某些政府单位安装服务器时，经常会遇到客户要求我们进行“软路由”的配置，以达到实现内外网共通。在外部我们通过外网可以访问该服务器，在内部我们也可以通过单位的内网进行访问服务器。今天小泊就来介绍下linux系统内的“软路由”配置。 “软路由”配置例如，这里我们获取到了2个网卡的地址：123内网网卡：eth0 192.168.1.100 网关：192.168.1.100外网网卡: eth1 119.222.222.222 网关：119.222.222.1 第一步：设置默认网关设置默认网关，让所有IP包默认情况下均通过119.222.222.1 进行转发：1route add default gw 119.222.222.1 第二步：设置内网转发单独为内网设置转发特例，所有192.168开头的，全部走eth01route add -net 192.168.0.0 netmask 255.255.0.0 dev eth0 路由配置的添加最好是加到开机启动上 编辑启动文件，将内容添加1vi /etc/rc.local 备注：删除默认网关的命令如下：1route del default 以上命令均在“终端”中输入。 联系小泊email：643209899@qq.com]]></content>
+      <categories>
+        <category>运维</category>
+      </categories>
+      <tags>
+        <tag>原创</tag>
+        <tag>linux</tag>
+        <tag>软路由</tag>
+        <tag>服务器维护</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Webstorm的安装和激活]]></title>
+    <url>%2Fpost%2FWebstorm%20usage%2F</url>
+    <content type="text"><![CDATA[因为心无所恃，所以才随遇而安​​。​ WebStorm介绍WebStorm是jetbrains公司旗下一款JavaScript 开发工具。目前已经被广大中国JS开发者誉为“Web前端开发神器”、“最强大的HTML5编辑器”、“最智能的JavaScript IDE”等。与IntelliJ IDEA同源，继承了IntelliJ IDEA强大的JS部分的功能。一般现在公司中常用此工具开发项目，所以有掌握的必要。在这里不提及”汉化”的步骤说明，希望大家在使用的过程中使用”英文版”。 （ps：”汉化版”在一些特殊情况下使用会产生错误，且大多公司都是用”英文版”。）安装过程：第一步：下载官网下载地址：http://www.jetbrains.com/webstorm/ 点击“DOWNLOAD”下载即可。 第二步：安装1、双击下载好的安装文件 2、点击“NEXT”继续安装 3、选择安装路径，默认在C盘目录下 （ps:这里建议大家安装路径尽量保持全英文。） 4、选择与“操作系统位数”相对应的版本 （ps：win7系统直接在桌面右键点击“我的电脑”，选择属性查看，win10系统在桌面或者打开任一文件夹，选择“此电脑”右键打开属性查看。） 5、安装完成 第三步：激活1、点击桌面快捷方式打开 2、输入“激活地址”进行激活（需要联网状态下进行） 地址：http://idea.codebeta.cn复制填入即可 注意：这里的地址可能会被官方封掉，所以这里再提供另一种方法，相对来讲比较麻烦，且激活时间仅为1年。 –这种方法，感谢龙云全栈的提供。 2.1、在激活过程中选择第二项“Activation code”” 在下面的输入框中输入“注册码”进行激活。 1注册码（1年）：CNEKJPQZEX-eyJsaWNlbnNlSWQiOiJDTkVLSlBRWkVYIiwibGljZW5zZWVOYW1lIjoibGFuIHl1IiwiYXNzaWd 使用上述注册码时，需要将 0.0.0.0 account.jetbrains.com 添加到 hosts ⽂文件中。 hosts文件所在的路路径如下:1C:\Windows\System32\drivers\etc 找到”hosts文件”后，点击鼠标右键，“打开方式”选择记事本即可打开。在最后一行加入： 值得注意的是: 不同版本的 WebStorm 的激活方式不同。具体激活方式可以搜索网上其他提供的激活教程。 第四步：打开1、创建新的项目并使用 通过以上就可以完成“Webstorm的安装和激活”啦，关于webstorm的具体使用以及一些快捷键和主题的美化会在以后的教程中进行更新。 联系小泊email：643209899@qq.com]]></content>
+      <categories>
+        <category>工具箱</category>
+      </categories>
+      <tags>
+        <tag>工具</tag>
+        <tag>龙云全栈</tag>
+        <tag>Webstorm</tag>
+        <tag>前端开发</tag>
+        <tag>原创</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[余生，和珍惜你的人在一起]]></title>
+    <url>%2Fpost%2FWho%20did%20you%20meet%2F</url>
+    <content type="text"><![CDATA[决定一个人幸福的，往往不是”你是谁”，而是”你遇到了谁”。​ 你再单纯，遇到城府深的人，你就会是有心机的人；你再善良，遇到心眼坏的人，你就会是爱矫情的人；你付出再多，遇到一个不会珍惜你的人，你就会是一文不值的。很多时候，并不是你不够好，而是你遇错了人。再好的人，也要有人懂得，才有意义。再多的努力，也要有人珍惜，才有价值。 以前，总想着用自己的好去打动别人，用更多的爱去感动别人。把自己弄得筋疲力尽、疲惫不堪，这才意识到，人生在世，有些事情不是一厢情愿就能做到的。 比如，不爱你的人，你感动不了，不珍惜你的人，没必要再和他纠缠。 一个人的温暖是有限的，花在不懂得珍惜的人身上，便成了浪费。一个人的美好是难能可贵的，一定要用在值得的人身上，才算是不辜负自己。 而珍惜你的人，不会让你的付出白费。你为他做的，他会记在心里，在合适的时机，他还会用同样的好来回报你。而不会珍惜的人，就像一个无底洞，怎么填也填不满。 你做再多，他也认为是理所应当的，你再辛苦，也得不到他同等的回应。 珍惜你的人，不会伤害你的感情。对他来说，你是很重要的，他会在意你的心情，体贴你的感受。伤你的事情，他不会做，无意间惹怒了你，他会赶紧认错然后哄你。 和他在一起，你的笑容永远要比眼泪多得多。 一辈子，没有必要为谁作践自己，有谁不想被人捧在手心里？又何必拿自己的热脸去贴别人那颗冰凉的心，害惨了自己，也得不到半点怜惜。 愿我们都能早点明白，一个人费劲支撑的感情，注定走不长远；暖了千百遍也暖不熟的心，就放下吧。 余生，就和珍惜你的人在一起！你在乎我，我也在乎你。 彼此珍惜，彼此温暖，便是世间最好的余生。 转自网络]]></content>
+      <categories>
+        <category>生活感悟</category>
+      </categories>
+      <tags>
+        <tag>情感</tag>
+        <tag>生活</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[滚动的公告栏（含"标签"源码）]]></title>
+    <url>%2Fpost%2FScrolling%20bulletin%20board%2F</url>
+    <content type="text"><![CDATA[因为心无所恃，所以才随遇而安​​。​ 标签源码在小泊的介绍页里，引入了一个”标签图”，大家可以使用手机或者计算机的截屏功能，随机的将当前屏幕截下，最终标签图中显示的内容，就是你给小泊贴的”标签”啦。其实呢，实现的原理很简单。 首先小泊先展示一下，小泊截到的标签(^▽^)： 源码（这里加入了鼠标悬停的效果）：-js原生实现-demo123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110&lt;!DOCTYPE html&gt;&lt;html lang=&quot;en&quot;&gt;&lt;head&gt; &lt;meta charset=&quot;UTF-8&quot;&gt; &lt;title&gt;label&lt;/title&gt; &lt;style&gt; /*清除系统默认样式*/ * &#123; margin: 0; padding: 0; &#125; /*清除列表的默认样式*/ ul &#123; list-style: none; &#125; #wrap &#123; width: 100px; border: 1px solid #ababab; margin: 50px auto; /*设置元素居中*/ text-align: center; &#125; #title &#123; height: 25px; overflow: hidden; border-bottom: 1px solid #f05e6f; color: red; &#125; #content &#123; height: 18px; width: 70px; margin-left: 15px; overflow: hidden; font-weight: bold; &#125; /*设置li元素高度，以撑开ul容器，使其大于外部容器*/ #wrap ul li &#123; height: 20px; &#125; &lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;div id=&quot;wrap&quot;&gt; &lt;h4 id=&quot;title&quot;&gt;选标签&lt;/h4&gt; &lt;div id=&quot;content&quot;&gt; &lt;ul id=&quot;box1&quot;&gt; &lt;li&gt;中央空调&lt;/li&gt; &lt;li&gt;知心朋友&lt;/li&gt; &lt;li&gt;有为青年&lt;/li&gt; &lt;li&gt;啰里啰嗦&lt;/li&gt; &lt;li&gt;技术宅&lt;/li&gt; &lt;li&gt;IT民工&lt;/li&gt; &lt;li&gt;文艺青年&lt;/li&gt; &lt;li&gt;潜力股&lt;/li&gt; &lt;li&gt;月光族&lt;/li&gt; &lt;li&gt;自由主义&lt;/li&gt; &lt;li&gt;90后&lt;/li&gt; &lt;li&gt;水瓶座&lt;/li&gt; &lt;li&gt;起床困难&lt;/li&gt; &lt;li&gt;工作狂&lt;/li&gt; &lt;li&gt;浪漫温柔&lt;/li&gt; &lt;li&gt;谦虚&lt;/li&gt; &lt;li&gt;矫情&lt;/li&gt; &lt;li&gt;暖男&lt;/li&gt; &lt;li&gt;领导者&lt;/li&gt; &lt;li&gt;单身狗&lt;/li&gt; &lt;li&gt;阳光向上&lt;/li&gt; &lt;li&gt;沉稳&lt;/li&gt; &lt;li&gt;老男人&lt;/li&gt; &lt;/ul&gt; &lt;ul id=&quot;box2&quot;&gt;&lt;/ul&gt; &lt;/div&gt;&lt;/div&gt;&lt;/body&gt;&lt;script type=&quot;text/javascript&quot;&gt; var content = document.getElementById(&apos;content&apos;); var box1 = document.getElementById(&apos;box1&apos;); var box2 = document.getElementById(&apos;box2&apos;); //数值越大，滚动越缓慢 var speed = 1; content.scrollTop = 0; //box2获取box1内容 box2.innerHTML = box1.innerHTML; function scrollUp()&#123; if(content.scrollTop &gt;= box1.scrollHeight) &#123; content.scrollTop = 0; &#125;else&#123; content.scrollTop ++; &#125; &#125; //创建定时器，实现滚动效果 var textScroll = setInterval(&quot;scrollUp()&quot;,speed); //当鼠标移上消除定时器 content.onmouseover = function()&#123; clearInterval(textScroll); &#125;; //当鼠标离开打开定时器 content.onmouseout = function()&#123; textScroll = setInterval(&quot;scrollUp()&quot;,speed); &#125;;&lt;/script&gt;&lt;/html&gt; 词条：scrollTopscrollHeight Ps：有专业工具的朋友，可以将以上代码直接复制进html文件中，运行即可。如果没有专业工具的朋友，可以将以上代码直接复制进文本.txt文件中，然后将.txt改为.html双击打开即可。 这样的话，我们就实现了”文字循环滚动”的效果。 其实很多小的功能，通过CSS样式和布局，就会有一些令人意想不到的效果发生。在这里呢，小泊也建议朋友们，在日常的学习或者工作中，可以通过小的点去辐射大的面，尤其是在技术的学习过程中尤为重要。在前端中，往往看上去很多炫酷、很复杂的效果都是由很多小的简单的部分组合而成，可能在某些情况下通过插件或者框架来实现会更简单，但不可否认的是，插件或者框架也是集合了基础的功能组合而成，本质是没有改变的。 就像小泊之前维护服务器和软件也是如此。 那么接下来，我们一起来丰富一下这个”滚动窗口”，实现我们日常生活中在网页中常见的”滚动的公告栏”效果。 滚动的公告栏-js原生实现-demo123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109&lt;!DOCTYPE html&gt;&lt;html lang=&quot;en&quot;&gt;&lt;head&gt; &lt;meta charset=&quot;UTF-8&quot;&gt; &lt;title&gt;label&lt;/title&gt; &lt;style&gt; *&#123; margin: 0; padding: 0; &#125; ul &#123; list-style: none; &#125; a &#123; color: #333; font-size: 12px; text-decoration: none; &#125; a:hover &#123; color: #ff0000; &#125; #warp &#123; width: 399px; border: 2px solid red; border-radius: 10px; box-shadow: 10px 10px 5px yellow; margin: 50px auto; &#125; #title &#123; height: 62px; overflow: hidden; font-size: 26px; line-height: 62px; /*border-bottom: 2px solid red;*/ color: red; text-align: center; &#125; #title a &#123; position: absolute; color: #fff; font-size: 12px; line-height: 24px; &#125; #content &#123; height: 144px; width: 335px; margin-left: 25px; /*margin-top: 5px;*/ overflow: hidden; &#125; #warp ul li &#123; height: 24px; &#125; #warp ul li a &#123; float: left; text-indent: 15px; &#125; #warp ul li span &#123; float: right; color: #999; &#125; &lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;div id=&quot;warp&quot;&gt; &lt;h3 id=&quot;title&quot;&gt;公告栏&lt;/h3&gt; &lt;div id=&quot;content&quot;&gt; &lt;ul id=&quot;list1&quot;&gt; &lt;li&gt;&lt;a href=&quot;#&quot;&gt;1.你吃了吗？吃什么了？&lt;/a&gt;&lt;span&gt;2018-01-18&lt;/span&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#&quot;&gt;2.你睡了吗？怎么还不睡啊？&lt;/a&gt;&lt;span&gt;2018-01-18&lt;/span&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#&quot;&gt;3.你瞅啥呢？不要老瞅我！&lt;/a&gt;&lt;span&gt;2018-01-18&lt;/span&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#&quot;&gt;4.天亮了，你怎么还没睡啊！&lt;/a&gt;&lt;span&gt;2018-01-18&lt;/span&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#&quot;&gt;5.听说今天不上课，你起那么早干啥啊！&lt;/a&gt;&lt;span&gt;2018-01-18&lt;/span&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#&quot;&gt;6.你又出去玩了啊，我也想出去玩！&lt;/a&gt;&lt;span&gt;2018-01-18&lt;/span&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#&quot;&gt;7.天冷了，多穿点衣服呀，别冻着了！&lt;/a&gt;&lt;span&gt;2018-01-18&lt;/span&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#&quot;&gt;8.你听得啥歌？我也想听哎~&lt;/a&gt;&lt;span&gt;2018-01-18&lt;/span&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#&quot; style=&quot;font-weight: bold;color:red&quot;&gt;9.我是最后一条了，可是我还会回来的&lt;/a&gt;&lt;span&gt;2018-01-18&lt;/span&gt;&lt;/li&gt; &lt;/ul&gt; &lt;ul id=&quot;list2&quot;&gt;&lt;/ul&gt; &lt;/div&gt;&lt;/div&gt;&lt;/body&gt;&lt;script type=&quot;text/javascript&quot;&gt; var content = document.getElementById(&apos;content&apos;); var list1 = document.getElementById(&apos;list1&apos;); var list2 = document.getElementById(&apos;list2&apos;); var speed = 50; content.scrollTop = 0; list2.innerHTML = list1.innerHTML; function scrollUp()&#123; if(content.scrollTop &gt;= list1.scrollHeight) &#123; content.scrollTop = 0; &#125;else&#123; content.scrollTop ++; &#125; &#125; var textScroll = setInterval(&quot;scrollUp()&quot;,speed); content.onmouseover = function()&#123; clearInterval(textScroll); &#125; content.onmouseout = function()&#123; textScroll = setInterval(&quot;scrollUp()&quot;,speed); &#125;&lt;/script&gt;&lt;/html&gt; 词条：box-shadowtext-indent Ps：打开方式如上。 这样我们就实现了”滚动公告栏”的功能。 联系小泊email：643209899@qq.com]]></content>
+      <categories>
+        <category>小功能</category>
+      </categories>
+      <tags>
+        <tag>前端开发</tag>
+        <tag>JavaScript</tag>
+        <tag>原生js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[博客全新改版]]></title>
+    <url>%2Fpost%2FRevised%20instructions%2F</url>
+    <content type="text"><![CDATA[不必哀悼过去，更不要忧愁未来。时光匆匆，转眼之间2018年已至。 发展历程xinghe110(星河110)2014年注册域名”Xinghe110”并使用-2015年弃用 时光INN(时光小栈)2015年7月确认域名：itsolotiem.com（IT所罗时），在此感谢好友/同学：”臾乔”予以的帮助。2015年7月31日在阿里云注册，并购买“云虚拟主机”。2016年7月29日备案通过，ICP备案号：鲁ICP备16027817号-1 查询2016年7月29起开始构建博客”时光INN”，采用框架：emlog。2018年1月网站重构改版。 小泊随記(当前)2018年1月11日，博客全新改版重建。2018年1月17日，网站通过公安备案：鲁公网安备37132502371373号查询采用框架：HEXO地址+Github地址使用工具：Node.js，git，MarkdownPad感谢 @龙云全栈 技术文档支持。 新站功能1、在线播放器 点击页面左侧边缘拉出”播放器” 首次打开播放器将会获得以上提示： a.点击歌曲封面开启/关闭”列表随机播放” b.用鼠标/手指拖动标题可以快进/快退 2、动态背景&amp;网站精灵(初版) a.新增”动态背景效果”，点击鼠标还可发生”美妙的效果”。 b.新增网站精灵，她暂时还没有名字，还在进一步开发中,仔细的盯住她会有”奇妙的事情发生哦~” 3、点击鼠标”桃心效果” 使用鼠标或者手指点击均可触发 以上功能均支持”Web端”和”移动端”。 旧站文章1、kail linux系统辅助文档（原创）2、阿里云万网虚拟主机设置二级域名(原创)3、利用Rsync实现双机实时备份数据教程（原创）… 博主/网站负责人基本情况姓名：漂小泊性别：男专业：法律（司法）行业：IT计算机性格：阳光乐观、开朗活泼、温和、谦虚等爱好：看书、听音乐、打游戏、下棋等特长：计算机硬/软维护、前端开发、心理咨询等 联系方式：QQ：643209899email：643209899@qq.com（常用）postmaster@itsolotime.com微博：小泊随記Github:piaoxiaobo个人站点：小泊随記斗鱼直播：漂泊泊泊微信公众号：itsolotime 感谢你的到来还有很多功能依旧在开发中哦！ 值得期待。]]></content>
+      <tags>
+        <tag>改版</tag>
+        <tag>漂小泊</tag>
+        <tag>龙云全栈</tag>
       </tags>
   </entry>
 </search>
