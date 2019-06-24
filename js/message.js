@@ -37,9 +37,20 @@ if (true) {
 			$('#landlord').css('right', '2rem');
 			$('#landlord').css('bottom', '2rem');
 		}
-		$('#landlord').css('left', landL + 'px');
-		$('#landlord').css('top', landT + 'px');
+		$(window).resize(function () {
+			if ($("body").width() < 1200) {
+				$('#landlord').css('left', landL + 'px');
+				$('#landlord').css('top', landT + 'px');
+			} else {
+				console.log('ss')
+				$('#landlord').css({
+					'left': "",
+					'top': ""
+				});
+			}
+		});
 		$('#landlord').css('display', 'block');
+
 		var AIimgSrc = [
 			home_Path + message_Path + "model/histoire/histoire.1024/texture_00.png",
 			home_Path + message_Path + "model/histoire/histoire.1024/texture_01.png",
