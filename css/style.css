@@ -3910,6 +3910,9 @@ pre .javascript .function {
 #menubtn {
   display: none;
 }
+.o2jbox {
+  position: absolute;
+}
 @media (max-width: 1199px) {
   #menubtn {
     display: block;
