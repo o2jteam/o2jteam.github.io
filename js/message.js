@@ -33,24 +33,21 @@ if (true) {
 	$(document).ready(function () {
 		var landT = sessionStorage.getItem("historytop");
 		var landL = sessionStorage.getItem("historyleft");
+		var $landlord = $('#landlord')
 		if (landT == null || landL == null) {
-			$('#landlord').css('right', '2rem');
-			$('#landlord').css('bottom', '2rem');
+			$landlord.css('right', '2rem');
+			$landlord.css('bottom', '2rem');
 		}
+
 		$(window).resize(function () {
 			if ($("body").width() < 1200) {
-				$('#landlord').css('left', landL + 'px');
-				$('#landlord').css('top', landT + 'px');
+				$landlord.css({'left':landL + 'px','top':landT + 'px'});
 			} else {
-				console.log('ss')
-				$('#landlord').css({
-					'left': "",
-					'top': ""
-				});
+				$landlord.css({'left':'','top':''});
 			}
 		});
-		$('#landlord').css('display', 'block');
-
+		
+		$landlord.css('display', 'block');
 		var AIimgSrc = [
 			home_Path + message_Path + "model/histoire/histoire.1024/texture_00.png",
 			home_Path + message_Path + "model/histoire/histoire.1024/texture_01.png",
