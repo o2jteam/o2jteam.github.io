@@ -149,23 +149,32 @@
 
   // "width": $(".content").width() + 18 + "px",
   //页面加载执行事件
+
   $(document).ready(function ($) {
-    if ($("body").width() >= 1200) {
-      $(".o2jbox").css({
-        "overflow-y": "scroll","overflow-x":"hidden"
+      $(".o2jbox").niceScroll({
+          cursorcolor:"transparent",
+          cursoropacitymax:1,
+          touchbehavior:false,
+          cursorwidth:"0",
+          cursorborder:"0",
+          cursorborderradius:"0"
       });
-    } else {
-      $(".o2jbox").css({"width":"100%","overflow-y": "scroll"});
-    }
-    $(window).resize(function () {
-      if ($("body").width() >= 1200) {
-          $(".o2jbox").css({
-            "overflow-y": "scroll","overflow-x":"hidden"
-          });
-        } else {
-          $(".o2jbox").css({"width":"100%","overflow-y": "scroll"});
-        }
-    });
+    // if ($("body").width() >= 1200) {
+    //   $(".o2jbox").css({
+    //     "overflow-y": "scroll","overflow-x":"hidden"
+    //   });
+    // } else {
+    //   $(".o2jbox").css({"width":"100%","overflow-y": "scroll"});
+    // }
+    // $(window).resize(function () {
+    //   if ($("body").width() >= 1200) {
+    //       $(".o2jbox").css({
+    //         "overflow-y": "scroll","overflow-x":"hidden"
+    //       });
+    //     } else {
+    //       $(".o2jbox").css({"width":"100%","overflow-y": "scroll"});
+    //     }
+    // });
     $(".anchor").click(function (event) {
       event.preventDefault();
       var top = $(this.hash).offset().top;
@@ -220,6 +229,9 @@
     $sidebar = $(".sidebar"),
     isMobileNavAnim = false,
     mobileNavAnimDuration = 200;
+  // if($('body').width() > 1200){
+  //     $('.o2jbox').css("width",($content.width() + 18) +'px')
+  // }
   var startMobileNavAnim = function () {
     isMobileNavAnim = true;
   };

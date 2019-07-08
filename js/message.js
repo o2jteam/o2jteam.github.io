@@ -46,7 +46,7 @@ if (true) {
 				$landlord.css({'left':'','top':''});
 			}
 		});
-		
+
 		$landlord.css('display', 'block');
 		var AIimgSrc = [
 			home_Path + message_Path + "model/histoire/histoire.1024/texture_00.png",

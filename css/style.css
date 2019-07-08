@@ -877,8 +877,8 @@ template {
     box-shadow: 5px 5px 2px #ccc;
     font-size: 12px;
     padding: 10px;
-    position: fixed;
-    left: 0%;
+    position: absolute;
+    right: 8rem;
     top: 10%;
   }
   .toc-article .toc-close {
@@ -3910,9 +3910,6 @@ pre .javascript .function {
 #menubtn {
   display: none;
 }
-.o2jbox {
-  position: absolute;
-}
 @media (max-width: 1199px) {
   #menubtn {
     display: block;
@@ -3945,9 +3942,6 @@ width
   .category-list {
     padding: 10rem !important;
     display: flex;
-  }
-  .footer {
-    width: 85vw;
   }
   .content {
     z-index: 2;
