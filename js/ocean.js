@@ -151,23 +151,24 @@
   //页面加载执行事件
 
   $(document).ready(function ($) {
-      $(".o2jbox").niceScroll();
-    // if ($("body").width() >= 1200) {
-    //   $(".o2jbox").css({
-    //     "overflow-y": "scroll","overflow-x":"hidden"
-    //   });
-    // } else {
-    //   $(".o2jbox").css({"width":"100%","overflow-y": "scroll"});
-    // }
-    // $(window).resize(function () {
-    //   if ($("body").width() >= 1200) {
-    //       $(".o2jbox").css({
-    //         "overflow-y": "scroll","overflow-x":"hidden"
-    //       });
-    //     } else {
-    //       $(".o2jbox").css({"width":"100%","overflow-y": "scroll"});
-    //     }
-    // });
+      // $(".o2jbox").niceScroll();
+      // $(".o2jbox").getNiceScroll().hide();
+    if ($("body").width() >= 1200) {
+      $(".o2jbox").css({
+        "overflow-y": "scroll","overflow-x":"hidden"
+      });
+    } else {
+      $(".o2jbox").css({"width":"100%","overflow-y": "scroll"});
+    }
+    $(window).resize(function () {
+      if ($("body").width() >= 1200) {
+          $(".o2jbox").css({
+            "overflow-y": "scroll","overflow-x":"hidden"
+          });
+        } else {
+          $(".o2jbox").css({"width":"100%","overflow-y": "scroll"});
+        }
+    });
     $(".anchor").click(function (event) {
       event.preventDefault();
       var top = $(this.hash).offset().top;
@@ -222,9 +223,9 @@
     $sidebar = $(".sidebar"),
     isMobileNavAnim = false,
     mobileNavAnimDuration = 200;
-  // if($('body').width() > 1200){
-  //     $('.o2jbox').css("width",($content.width() + 18) +'px')
-  // }
+  if($('body').width() > 1200){
+      $('.o2jbox').css("width",($content.width() + 18) +'px')
+  }
   var startMobileNavAnim = function () {
     isMobileNavAnim = true;
   };
