@@ -3915,6 +3915,7 @@ pre .javascript .function {
     display: block;
   }
   .o2jbox {
+    transition-duration: 0s !important;
     height: 100%;
 width
   }
