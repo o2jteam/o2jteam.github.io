@@ -1,6 +1,6 @@
 // var home_Path = document.location.protocol + '//' + window.document.location.hostname + '/';
-// var home_Path = 'https://o2jteam.github.io/';
-var home_Path = 'http://localhost:4000/';
+var home_Path = 'https://o2jteam.github.io/';
+// var home_Path = 'http://localhost:4000/';
 var userAgent = window.navigator.userAgent.toLowerCase();
 // console.log(userAgent);
 var norunAI = ["android", "iphone", "ipod", "ipad", "windows phone", "mqqbrowser", "msie", "trident/7.0"];
