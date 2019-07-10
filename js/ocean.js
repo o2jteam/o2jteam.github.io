@@ -157,7 +157,8 @@
           cursorwidth:"0",
           cursorborder:"0",
           cursorborderradius:"0",
-          autohidemode: true
+          autohidemode: true,
+          scrollspeed:80
       });
     // if ($("body").width() >= 1200) {
     //   $(".o2jbox").css({
