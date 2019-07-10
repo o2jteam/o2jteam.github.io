@@ -14,7 +14,7 @@
     
     obj前端团队</title>
   
-    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="shortcut icon" href="/favicon.png">
   
   <link rel="stylesheet" href="/css/style.css">
   
@@ -28,32 +28,33 @@
   <div class="o2jwrap">
     <main class="content">
       <div class="o2jbox">
-        <section class="jumbotron">
-  <div class="video">
-    
-    <div class="video-frame">
-      <img src="http://source.zhwangart.com/hexo/themes/ocean/overlay-hero.png" alt="Decorative image frame">
+          <section class="jumbotron">
+    <div class="video">
+      
+        <div class="video-frame">
+          <img src="http://source.zhwangart.com/hexo/themes/ocean/overlay-hero.png" alt="Decorative image frame">
+        </div>
+      
+      <div class="video-media">
+        <video playsinline="" autoplay="" loop="" muted="" data-autoplay="" poster="http://source.zhwangart.com/hexo/themes/ocean/ocean.png"
+               x5-video-player-type="h5">
+          <source src="http://source.zhwangart.com/hexo/themes/ocean/ocean.mp4" type="video/mp4">
+          <source src="http://source.zhwangart.com/hexo/themes/ocean/ocean.ogv" type="video/ogg">
+          <source src="http://source.zhwangart.com/hexo/themes/ocean/ocean.webm" type="video/webm">
+          <p>Your user agent does not support the HTML5 Video element.</p>
+        </video>
+        <div class="video-overlay"></div>
+      </div>
+      <div class="video-inner text-center text-white">
+        <h1><a href="/">obj前端团队</a></h1>
+        <p>生活虽不易，未来亦可期。</p>
+        <div><img src="/images/hexo-inverted.svg" class="o2jbrand" alt="obj前端团队"></div>
+      </div>
+      <div class="video-learn-more">
+        <a class="anchor"  href="#landingpage"><i class="fe fe-mouse"></i></a>
+      </div>
+
     </div>
-    
-    <div class="video-media">
-      <video playsinline="" autoplay="" loop="" muted="" data-autoplay="" poster="http://source.zhwangart.com/hexo/themes/ocean/ocean.png"
-        x5-video-player-type="h5">
-        <source src="http://source.zhwangart.com/hexo/themes/ocean/ocean.mp4" type="video/mp4">
-        <source src="http://source.zhwangart.com/hexo/themes/ocean/ocean.ogv" type="video/ogg">
-        <source src="http://source.zhwangart.com/hexo/themes/ocean/ocean.webm" type="video/webm">
-        <p>Your user agent does not support the HTML5 Video element.</p>
-      </video>
-      <div class="video-overlay"></div>
-    </div>
-    <div class="video-inner text-center text-white">
-      <h1><a href="/">obj前端团队</a></h1>
-      <p>生活虽不易，未来亦可期。</p>
-      <div><img src="/images/hexo-inverted.svg" class="brand" alt="obj前端团队"></div>
-    </div>
-     <div class="video-learn-more">
-      <a class="anchor" href="#landingpage"><i class="fe fe-mouse"></i></a>
-    </div>
-  </div>
 </section>
 
 <div id="landingpage">
@@ -86,8 +87,12 @@
     
     <div class="article-meta">
       
+      <i class="fe fe-bolt"></i>
+      <font color=7D26CD>置顶</font>
+      <span class="post-meta-divider">|</span>
+      
       <a href="/post/hello-world/" class="article-date">
-  <time datetime="2019-06-17T02:06:18.893Z" itemprop="datePublished">2019-06-17</time>
+  <time datetime="2019-07-08T03:03:06.150Z" itemprop="datePublished">2019-07-08</time>
 </a>
       
   <div class="article-category">
@@ -111,11 +116,13 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://o2jteam.github.io/post/hello-world/" data-id="cjx02vhu2000130uyj09vjbay"
+      <a data-url="https://o2jteam.github.io/post/hello-world/" data-id="cjxu0g3eg0000qcnmhebbuni7"
         class="article-share-link">Share</a>
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ss/">ss</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/测试文章/">测试文章</a></li></ul>
 
+      <!-- 要添加的内容 -->
+      
     </footer>
 
   </div>
@@ -132,7 +139,7 @@
 </section>
 </div>
 
-        <footer class="footer">
+          <footer class="footer">
   
   <div class="outer">
     <!-- <div class="float-right">
@@ -151,10 +158,25 @@
 
       </div>
     </main>
+    <div id="landlord">
+      <div class="message" style="opacity:0"></div>
+      <canvas id="live2d" width="500" height="560" class="live2d"></canvas>
+      <input name="live_talk" id="live_talk" value="1" type="hidden" />
+      <div class="live_ico_box">
+        <div class="live_ico_item type_info" id="menubtn"></div>
+        <!-- <div class="live_ico_item type_info" id="showInfoBtn"></div> -->
+        <div class="live_ico_item type_talk" id="showTalkBtn"></div>
+        <div class="live_ico_item type_music" id="musicButton"></div>
+        <div class="live_ico_item type_youdu" id="youduButton"></div>
+        <div class="live_ico_item type_quit" id="hideButton"></div>
+        <input name="live_statu_val" id="live_statu_val" value="0" type="hidden" />
+        <audio src="" style="display:none;" id="live2d_bgm" data-bgm="0" preload="none"></audio>
+        <input name="live2dBGM" value="https://www.itsolotime.com/music/qnxt.mp3" type="hidden">
+        <input id="duType" value="douqilai,l2d_caihong" type="hidden">
+      </div>
+    </div>
     <aside class="sidebar">
-      <button class="navbar-toggle"></button>
-
-<nav class="navbar">
+      <nav class="navbar">
   
   <div class="logo">
     <a href="/"><img src="https://avatars2.githubusercontent.com/u/50328824?s=200&v=4" alt="obj前端团队"></a>
@@ -209,10 +231,12 @@
 </nav>
 
 <div class="search-form-wrap">
-  <div class="local-search local-search-plugin">
-  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
-  <div id="local-search-result" class="local-search-result"></div>
-</div>
+    <div class="local-search local-search-plugin">
+    <div class="o2jsearch">
+      <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+      <div id="local-search-result" class="local-search-result"></div>
+    </div>
+  </div>
 </div>
     </aside>
     <script src="/js/jquery-2.0.3.min.js"></script>
@@ -220,15 +244,17 @@
 <script src="/js/busuanzi-2.3.pure.min.js"></script>
 
 
-  <script src="/fancybox/jquery.fancybox.min.js"></script>
+<script src="/fancybox/jquery.fancybox.min.js"></script>
 
 
 
-  <script src="/js/search.js"></script>
+<script src="/js/search.js"></script>
 
-
+<script src="/js/layer.js"></script>
+<script src="/js/live2d.js"></script>
+<script src="/js/jquery.nicescroll.min.js"></script>
+<script src="/js/message.js"></script>
 <script src="/js/ocean.js"></script>
-
   </div>
 
 </body>

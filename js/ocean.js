@@ -1,6 +1,6 @@
 (function ($) {
   // Search ------------
-  var $searchWrap = $('.search-form-wrap'),
+  var $searchWrap = $(".search-form-wrap"),
     isSearchAnim = false,
     searchAnimDuration = 200;
 
@@ -15,19 +15,20 @@
     }, searchAnimDuration);
   };
 
-  $('.nav-item-search').on('click', function () {
+  $(".nav-item-search").on("click", function () {
     if (isSearchAnim) return;
     startSearchAnim();
-    $searchWrap.addClass('on');
+    $(".o2jsearch").css("width", $(".local-search").width() + 20 + "px");
+    $searchWrap.addClass("on");
     stopSearchAnim(function () {
-      $('.local-search-input').focus();
+      $(".local-search-input").focus();
     });
   });
 
   $(document).mouseup(function (e) {
-    var _con = $('.local-search');
+    var _con = $(".local-search");
     if (!_con.is(e.target) && _con.has(e.target).length === 0) {
-      $searchWrap.removeClass('on');
+      $searchWrap.removeClass("on");
     }
   });
 
@@ -49,71 +50,96 @@
       return navigator.userAgent.match(/IEMobile/i);
     },
     any: function () {
-      return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+      return (
+        isMobile.Android() ||
+        isMobile.BlackBerry() ||
+        isMobile.iOS() ||
+        isMobile.Opera() ||
+        isMobile.Windows()
+      );
     }
   };
   // 建议在移动端不初始化，其实 /search.xml 文件还挺大的，
-  if ($('.local-search').size() && !isMobile.any()) {
-    $.getScript('/js/search.js', function () {
-      searchFunc("/search.xml", 'local-search-input', 'local-search-result');
+  if ($(".local-search").size() && !isMobile.any()) {
+    $.getScript("/js/search.js", function () {
+      searchFunc("/search.xml", "local-search-input", "local-search-result");
     });
   }
 
   // Share ------------
-  $('body').on('click', function () {
-    $('.article-share-box.on').removeClass('on');
-  }).on('click', '.article-share-link', function (e) {
-    e.stopPropagation();
+  $("body")
+    .on("click", function () {
+      $(".article-share-box.on").removeClass("on");
+    })
+    .on("click", ".article-share-link", function (e) {
+      e.stopPropagation();
 
-    var $this = $(this),
-      url = $this.attr('data-url'),
-      encodedUrl = encodeURIComponent(url),
-      id = 'article-share-box-' + $this.attr('data-id'),
-      offset = $this.offset();
+      var $this = $(this),
+        url = $this.attr("data-url"),
+        encodedUrl = encodeURIComponent(url),
+        id = "article-share-box-" + $this.attr("data-id"),
+        offset = $this.offset();
 
-    if ($('#' + id).length) {
-      var box = $('#' + id);
+      if ($("#" + id).length) {
+        var box = $("#" + id);
 
-      if (box.hasClass('on')) {
-        box.removeClass('on');
-        return;
+        if (box.hasClass("on")) {
+          box.removeClass("on");
+          return;
+        }
+      } else {
+        var html = [
+          '<div id="' + id + '" class="article-share-box">',
+          '<input class="article-share-input" value="' + url + '">',
+          '<div class="article-share-links">',
+          '<a href="https://twitter.com/intent/tweet?url=' +
+          encodedUrl +
+          '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+          '<a href="https://www.facebook.com/sharer.php?u=' +
+          encodedUrl +
+          '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+          '<a href="http://pinterest.com/pin/create/button/?url=' +
+          encodedUrl +
+          '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+          '<a href="https://plus.google.com/share?url=' +
+          encodedUrl +
+          '" class="article-share-google" target="_blank" title="Google+"></a>',
+          "</div>",
+          "</div>"
+        ].join("");
+
+        var box = $(html);
+        $("body").append(box);
       }
-    } else {
-      var html = [
-        '<div id="' + id + '" class="article-share-box">',
-        '<input class="article-share-input" value="' + url + '">',
-        '<div class="article-share-links">',
-        '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
-        '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
-        '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
-        '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
-        '</div>',
-        '</div>'
-      ].join('');
+      $(".article-share-box.on").hide();
 
-      var box = $(html);
-      $('body').append(box);
-    }
-    $('.article-share-box.on').hide();
+      box
+        .css({
+          top: offset.top + 25,
+          left: offset.left
+        })
+        .addClass("on");
+    })
+    .on("click", ".article-share-box", function (e) {
+      e.stopPropagation();
+    })
+    .on("click", ".article-share-box-input", function () {
+      $(this).select();
+    })
+    .on("click", ".article-share-box-link", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
 
-    box.css({
-      top: offset.top + 25,
-      left: offset.left
-    }).addClass('on');
-  }).on('click', '.article-share-box', function (e) {
-    e.stopPropagation();
-  }).on('click', '.article-share-box-input', function () {
-    $(this).select();
-  }).on('click', '.article-share-box-link', function (e) {
-    e.preventDefault();
-    e.stopPropagation();
-
-    window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-  });
+      window.open(
+        this.href,
+        "article-share-box-window-" + Date.now(),
+        "width=500,height=450"
+      );
+    });
 
   // fancybox
   if ($.fancybox) {
-    $('[data-fancybox]').fancybox({
+    $("[data-fancybox]").fancybox({
       protect: true
     });
   }
@@ -121,13 +147,42 @@
   // lazyload
   $(".lazy").lazyload();
 
-  //
+  // "width": $(".content").width() + 18 + "px",
+  //页面加载执行事件
+
   $(document).ready(function ($) {
+      $(".o2jbox").niceScroll({
+          cursorcolor:"transparent",
+          cursoropacitymax:1,
+          touchbehavior:false,
+          cursorwidth:"0",
+          cursorborder:"0",
+          cursorborderradius:"0"
+      });
+    // if ($("body").width() >= 1200) {
+    //   $(".o2jbox").css({
+    //     "overflow-y": "scroll","overflow-x":"hidden"
+    //   });
+    // } else {
+    //   $(".o2jbox").css({"width":"100%","overflow-y": "scroll"});
+    // }
+    // $(window).resize(function () {
+    //   if ($("body").width() >= 1200) {
+    //       $(".o2jbox").css({
+    //         "overflow-y": "scroll","overflow-x":"hidden"
+    //       });
+    //     } else {
+    //       $(".o2jbox").css({"width":"100%","overflow-y": "scroll"});
+    //     }
+    // });
     $(".anchor").click(function (event) {
       event.preventDefault();
-      $('html,body').animate({
-        scrollTop: $(this.hash).offset().top
-      }, 500);
+      var top = $(this.hash).offset().top;
+      $(".o2jbox").animate({
+          scrollTop: top
+        },
+        500
+      );
     });
   });
 
@@ -138,37 +193,45 @@
     var upperLimit = 1000;
 
     // Our scroll link element
-    var scrollElem = $('#totop');
+    var scrollElem = $("#totop");
 
     // Scroll to top speed
     var scrollSpeed = 1600;
 
     // Show and hide the scroll to top link based on scroll position
-    scrollElem.hide();
-    $(window).scroll(function () {
-      var scrollTop = $(document).scrollTop();
+    // scrollElem.hide();
+    $(".o2jbox").scroll(function () {
+      var scrollTop = $(".o2jbox").scrollTop();
       if (scrollTop > upperLimit) {
-        $(scrollElem).stop().fadeTo(300, 1); // fade back in
+        $(scrollElem)
+          .stop()
+          .fadeTo(300, 1); // fade back in
       } else {
-        $(scrollElem).stop().fadeTo(300, 0); // fade out
+        $(scrollElem)
+          .stop()
+          .fadeTo(300, 0); // fade out
       }
     });
 
     // Scroll to top animation on click
     $(scrollElem).click(function () {
-      $('html, body').animate({
-        scrollTop: 0
-      }, scrollSpeed);
+      $(".o2jbox").animate({
+          scrollTop: 0
+        },
+        scrollSpeed
+      );
       return false;
     });
   })(jQuery);
 
   // Mobile nav
-  var $content = $('.content'),
-    $sidebar = $('.sidebar'),
+  var $content = $(".content"),
+    $sidebar = $(".sidebar"),
     isMobileNavAnim = false,
     mobileNavAnimDuration = 200;
-
+  // if($('body').width() > 1200){
+  //     $('.o2jbox').css("width",($content.width() + 18) +'px')
+  // }
   var startMobileNavAnim = function () {
     isMobileNavAnim = true;
   };
@@ -179,23 +242,64 @@
     }, mobileNavAnimDuration);
   };
 
-  // var clientH = document.body.clientHeight;
-  // console.log(clientH)
-  // $(".o2jbox").css({
-  //   "height": clientH + 'px'
-  // })
-  $('.navbar-toggle').on('click', function () {
+  var cont = $("#landlord");
+  var contW = $("#landlord").width();
+  var contH = $("#landlord").height();
+  var startX, startY, sX, sY, moveX, moveY, disX, disY;
+  var winW = $(window).width();
+  var winH = $(window).height();
+  cont.on({
+    //绑定事件
+    touchstart: function (e) {
+      startX = e.originalEvent.targetTouches[0].pageX; //获取点击点的X坐标
+      startY = e.originalEvent.targetTouches[0].pageY; //获取点击点的Y坐标
+      //console.log("startX="+startX+"************startY="+startY);
+      sX = $(this).offset().left; //相对于当前窗口X轴的偏移量
+      sY = $(this).offset().top; //相对于当前窗口Y轴的偏移量
+      //console.log("sX="+sX+"***************sY="+sY);
+      leftX = startX - sX; //鼠标所能移动的最左端是当前鼠标距div左边距的位置
+      rightX = winW - contW + leftX; //鼠标所能移动的最右端是当前窗口距离减去鼠标距div最右端位置
+      topY = startY - sY; //鼠标所能移动最上端是当前鼠标距div上边距的位置
+      bottomY = winH - contH + topY; //鼠标所能移动最下端是当前窗口距离减去鼠标距div最下端位置
+    },
+    touchmove: function (e) {
+      e.preventDefault();
+      moveX = e.originalEvent.targetTouches[0].pageX; //移动过程中X轴的坐标
+      moveY = e.originalEvent.targetTouches[0].pageY; //移动过程中Y轴的坐标
+      //console.log("moveX="+moveX+"************moveY="+moveY);
+      if (moveX < leftX) {
+        moveX = leftX;
+      }
+      if (moveX > rightX) {
+        moveX = rightX;
+      }
+      if (moveY < topY) {
+        moveY = topY;
+      }
+      if (moveY > bottomY) {
+        moveY = bottomY;
+      }
+      $(this).css({
+        left: moveX + sX - startX,
+        top: moveY + sY - startY
+      });
+
+      sessionStorage.setItem("historytop", moveY + sY - startY);
+      sessionStorage.setItem("historyleft", moveX + sX - startX);
+    }
+  });
+
+  $("#menubtn").on("click", function () {
     if (isMobileNavAnim) return;
     startMobileNavAnim();
-    $content.toggleClass('on');
-    $sidebar.toggleClass('on');
+    $content.toggleClass("on");
+    $sidebar.toggleClass("on");
     stopMobileNavAnim();
   });
 
-  $($content).on('click', function () {
-    if (isMobileNavAnim || !$content.hasClass('on')) return;
-    $content.removeClass('on');
-    $sidebar.removeClass('on');
+  $($content).on("click", function () {
+    if (isMobileNavAnim || !$content.hasClass("on")) return;
+    $content.removeClass("on");
+    $sidebar.removeClass("on");
   });
-
 })(jQuery);

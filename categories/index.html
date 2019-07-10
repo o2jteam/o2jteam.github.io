@@ -15,7 +15,7 @@
     
     obj前端团队</title>
   
-    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="shortcut icon" href="/favicon.png">
   
   <link rel="stylesheet" href="/css/style.css">
   
@@ -29,25 +29,23 @@
   <div class="o2jwrap">
     <main class="content">
       <div class="o2jbox">
-        <article class="article article-type-post show">
+          <article class="article article-type-post show">
     <header class="article-header">
         <h1 align="center" class="article-title" itemprop="name">
-
             专题
         </h1>
     </header>
 
     
     <div class="category-all-page article-type-post show">
-        <h3 align="right">Total:&nbsp;1&nbsp;Categories </h3>
-
+        <h3 align="center">Total:&nbsp;1&nbsp;Categories </h3>
         <ul align="center" style="font-size:18px" class="category-list">
-
             
             
-
-            <a href="/categories/原创课程/"
-                title="原创课程">原创课程<sup>[1]</sup></a>
+            <li>
+                <a href="/categories/原创课程/"
+                    title="原创课程">原创课程<sup>[1]</sup></a>
+            </li>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             
             
@@ -55,7 +53,7 @@
     </div>
     
 </article>
-        <footer class="footer">
+          <footer class="footer">
   
   <div class="outer">
     <!-- <div class="float-right">
@@ -74,10 +72,25 @@
 
       </div>
     </main>
+    <div id="landlord">
+      <div class="message" style="opacity:0"></div>
+      <canvas id="live2d" width="500" height="560" class="live2d"></canvas>
+      <input name="live_talk" id="live_talk" value="1" type="hidden" />
+      <div class="live_ico_box">
+        <div class="live_ico_item type_info" id="menubtn"></div>
+        <!-- <div class="live_ico_item type_info" id="showInfoBtn"></div> -->
+        <div class="live_ico_item type_talk" id="showTalkBtn"></div>
+        <div class="live_ico_item type_music" id="musicButton"></div>
+        <div class="live_ico_item type_youdu" id="youduButton"></div>
+        <div class="live_ico_item type_quit" id="hideButton"></div>
+        <input name="live_statu_val" id="live_statu_val" value="0" type="hidden" />
+        <audio src="" style="display:none;" id="live2d_bgm" data-bgm="0" preload="none"></audio>
+        <input name="live2dBGM" value="https://www.itsolotime.com/music/qnxt.mp3" type="hidden">
+        <input id="duType" value="douqilai,l2d_caihong" type="hidden">
+      </div>
+    </div>
     <aside class="sidebar">
-      <button class="navbar-toggle"></button>
-
-<nav class="navbar">
+      <nav class="navbar">
   
   <div class="logo">
     <a href="/"><img src="https://avatars2.githubusercontent.com/u/50328824?s=200&v=4" alt="obj前端团队"></a>
@@ -132,10 +145,12 @@
 </nav>
 
 <div class="search-form-wrap">
-  <div class="local-search local-search-plugin">
-  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
-  <div id="local-search-result" class="local-search-result"></div>
-</div>
+    <div class="local-search local-search-plugin">
+    <div class="o2jsearch">
+      <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+      <div id="local-search-result" class="local-search-result"></div>
+    </div>
+  </div>
 </div>
     </aside>
     <script src="/js/jquery-2.0.3.min.js"></script>
@@ -143,15 +158,17 @@
 <script src="/js/busuanzi-2.3.pure.min.js"></script>
 
 
-  <script src="/fancybox/jquery.fancybox.min.js"></script>
+<script src="/fancybox/jquery.fancybox.min.js"></script>
 
 
 
-  <script src="/js/search.js"></script>
+<script src="/js/search.js"></script>
 
-
+<script src="/js/layer.js"></script>
+<script src="/js/live2d.js"></script>
+<script src="/js/jquery.nicescroll.min.js"></script>
+<script src="/js/message.js"></script>
 <script src="/js/ocean.js"></script>
-
   </div>
 
 </body>
