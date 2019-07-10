@@ -34,12 +34,16 @@ if (true) {
 	$(document).ready(function () {
 		var landT = sessionStorage.getItem("historytop");
 		var landL = sessionStorage.getItem("historyleft");
-		var $landlord = $('#landlord')
+		var $landlord = $('#landlord');
 		if (landT == null || landL == null) {
 			$landlord.css('right', '2rem');
 			$landlord.css('bottom', '2rem');
 		}
-
+		if ($("body").width() < 1200) {
+			$landlord.css({'left':landL + 'px','top':landT + 'px'});
+		} else {
+			$landlord.css({'left':'','top':''});
+		}
 		$(window).resize(function () {
 			if ($("body").width() < 1200) {
 				$landlord.css({'left':landL + 'px','top':landT + 'px'});
