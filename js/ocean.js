@@ -152,12 +152,12 @@
 
   $(document).ready(function ($) {
       $(".o2jbox").niceScroll({
+          touchbehavior: true,
           cursorcolor:"transparent",
-          cursoropacitymax:1,
-          touchbehavior:false,
           cursorwidth:"0",
           cursorborder:"0",
-          cursorborderradius:"0"
+          cursorborderradius:"0",
+          autohidemode: true
       });
     // if ($("body").width() >= 1200) {
     //   $(".o2jbox").css({
