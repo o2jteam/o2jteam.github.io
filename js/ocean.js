@@ -151,15 +151,7 @@
   //页面加载执行事件
 
   $(document).ready(function ($) {
-      $(".o2jbox").niceScroll({
-          touchbehavior: true,
-          cursorcolor:"transparent",
-          cursorwidth:"0",
-          cursorborder:"0",
-          cursorborderradius:"0",
-          autohidemode: true,
-          scrollspeed:80
-      });
+      $(".o2jbox").niceScroll();
     // if ($("body").width() >= 1200) {
     //   $(".o2jbox").css({
     //     "overflow-y": "scroll","overflow-x":"hidden"
