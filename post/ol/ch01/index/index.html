@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <meta name="baidu-site-verification" content="4WQ2069gFD">
+  
+    <meta name="keywords" content="o2jteam,o2jteam前端团队,前端团队,obj前端团队,北京世新天成科技有限公司,北京星辉光迅科技有限公司">
+  
+  
+    <meta name="description" content="obj前端团队门户网站">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>
+    初识OpenLayers 5 |
+    
+    obj前端团队</title>
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+  
+  <script src="/js/pace.min.js"></script>
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      }
+      else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+</head>
+</html>
+
+<body>
+  <div class="o2jwrap">
+    <main class="content">
+      <div class="o2jbox">
+          <section class="outer">
+  <article id="post-ol/ch01/index" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      初识OpenLayers 5
+    </h1>
+  
+
+      <!-- 目录内容 -->
+      
+      <!-- 目录内容结束 -->
+    </header>
+    
+
+    
+    <div class="article-meta">
+      
+      <a href="/post/ol/ch01/index/" class="article-date">
+  <time datetime="2019-07-11T03:01:52.091Z" itemprop="datePublished">2019-07-11</time>
+</a>
+      
+  <div class="article-category">
+    <span>专题：</span>
+    <a class="article-category-link" href="/categories/Openlayers/">Openlayers</a>
+  </div>
+
+    </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+      <p><code>OpenLayers 5</code>简称ol5，它是一个开源的<code>Web GIS</code>引擎，使用了<code>JavaScript、HTML5及CSS</code>等技术，支持<code>dom，canvas和webgl</code>三种渲染方式。除了支持PC端，还支持移动端。在地图数据源方面，支持各种类型的瓦片地图，既支持在线，也支持离线。比如<code>OSM, Bing, MapBox, Stamen, MapQuest</code>等等；还支持各种矢量地图，比如<code>GeoJSON，TopoJSON，KML，GML</code>等等。随着<code>OpenLayers 5</code>的进一步发展，相信将支持更多的地图类型。<br><a id="more"></a></p>
+<h2 id="认识WebGis"><a href="#认识WebGis" class="headerlink" title="认识WebGis"></a>认识WebGis</h2><p><code>WebGIS（网络地理信息系统）</code>是指工作在Web网上的GIS,是传统的GIS在网络上的延伸和发展，具有传统GIS的特点，可以实现空间数据的检索、查询、制图输出、编辑等GIS基本功能，同时也是Internet 上地理信息发布、共享和交流协作的基础。</p>
+<blockquote>
+<ul>
+<li>百度百科：<a href="https://baike.baidu.com/item/webgis/761986" target="_blank" rel="noopener">https://baike.baidu.com/item/webgis/761986</a></li>
+<li>维基百科：<a href="https://zh.wikipedia.org/wiki/地理信息系统" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/地理信息系统</a></li>
+</ul>
+</blockquote>
+<h2 id="兼容性"><a href="#兼容性" class="headerlink" title="兼容性"></a>兼容性</h2><p>由于<code>OpenLayers 5</code>使用了HTML5技术，所以对各种浏览器的版本有所要求。IE浏览器最低也需要IE9才行，以下的IE浏览器可以考虑使用<code>OpenLayers 2</code>。其他浏览器的最低版本要求为<code>Firefox 3.5，Chrome 3.0，Safari 3.0，Opera 10.5</code>。如果要使用<code>webgl</code>渲染方式，则又需要参考各大浏览器的支持程度进行选择。</p>
+<h2 id="代码规范"><a href="#代码规范" class="headerlink" title="代码规范"></a>代码规范</h2><p><code>OpenLayers 5</code>采用面向对象的编程范式，类在API中随处可见，比如<code>ol.Map</code>，<code>ol.View</code>等等。如果你有面向对象的思维，将较为容易的理解<code>API</code>及使用。<br><code>OpenLayers 5</code>采用包管理的方式管理代码，比如<code>layer</code>的包名为<code>ol.layer</code>，命名方式类似于JAVA的包名。这源于<code>OpenLayers 5</code>采用了<code>Google</code>的<code>Closure</code>库。<br><code>OpenLayers 5</code>采用驼峰式(Camel-Case)命名，变量名采用小驼峰命名，类名使用大驼峰命名。</p>
+<h2 id="编辑器"><a href="#编辑器" class="headerlink" title="编辑器"></a>编辑器</h2><blockquote>
+<ul>
+<li>webstorm：<a href="https://www.jetbrains.com/webstorm/" target="_blank" rel="noopener">https://www.jetbrains.com/webstorm/</a></li>
+<li>vscode：<a href="https://code.visualstudio.com/" target="_blank" rel="noopener">https://code.visualstudio.com/</a></li>
+</ul>
+</blockquote>
+<h2 id="资源"><a href="#资源" class="headerlink" title="资源"></a>资源</h2><blockquote>
+<ul>
+<li>官网：<a href="https://openlayers.org/" target="_blank" rel="noopener">https://openlayers.org/</a></li>
+<li>官网资源下载：<a href="https://openlayers.org/download" target="_blank" rel="noopener">https://openlayers.org/download</a></li>
+<li>GitHub：<a href="https://github.com/openlayers/openlayers" target="_blank" rel="noopener">https://github.com/openlayers/openlayers</a></li>
+<li>在线文档：<a href="https://openlayers.org/en/latest/apidoc" target="_blank" rel="noopener">https://openlayers.org/en/latest/apidoc</a></li>
+<li>在线实例：<a href="https://openlayers.org/en/latest/examples" target="_blank" rel="noopener">https://openlayers.org/en/latest/examples</a></li>
+<li>Openlayers_v4.6.5离线文档：<a href="https://www.itsolotime.com/download/openlayers_v4.6.5.rar" target="_blank" rel="noopener">https://www.itsolotime.com/download/openlayers_v4.6.5.rar</a></li>
+<li>Openlayers_v5.3.0离线文档：<a href="https://www.itsolotime.com/download/openlayers_v5.3.0.zip" target="_blank" rel="noopener">https://www.itsolotime.com/download/openlayers_v5.3.0.zip</a></li>
+</ul>
+</blockquote>
+<h2 id="帮助"><a href="#帮助" class="headerlink" title="帮助"></a>帮助</h2><h3 id="vscode插件"><a href="#vscode插件" class="headerlink" title="vscode插件"></a>vscode插件</h3><blockquote>
+<ul>
+<li>前端必备：<a href="https://segmentfault.com/a/1190000006697219#articleHeader16" target="_blank" rel="noopener">https://segmentfault.com/a/1190000006697219#articleHeader16</a></li>
+<li>30个极大提高开发效率插件：<a href="https://blog.fundebug.com/2018/07/24/vs-extensions/" target="_blank" rel="noopener">https://blog.fundebug.com/2018/07/24/vs-extensions/</a></li>
+</ul>
+</blockquote>
+<h3 id="webstorm-activetion-code（激活至2099）："><a href="#webstorm-activetion-code（激活至2099）：" class="headerlink" title="webstorm activetion code（激活至2099）："></a>webstorm activetion code（激活至2099）：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4RULSIH54N-eyJsaWNlbnNlSWQiOiI0UlVMU0lINTROIiwibGljZW5zZWVOYW1lIjoiMjA5OSAxODExIiwiYXNzaWduZWVOYW1lIjoiIiwiYXNzaWduZWVFbWFpbCI6IiIsImxpY2Vuc2VSZXN0cmljdGlvbiI6IkZvciBlZHVjYXRpb25hbCB1c2Ugb25seSIsImNoZWNrQ29uY3VycmVudFVzZSI6ZmFsc2UsInByb2R1Y3RzIjpbeyJjb2RlIjoiSUkiLCJwYWlkVXBUbyI6IjIwMTktMTEtMjcifSx7ImNvZGUiOiJBQyIsInBhaWRVcFRvIjoiMjAxOS0xMS0yNyJ9LHsiY29kZSI6IkRQTiIsInBhaWRVcFRvIjoiMjAxOS0xMS0yNyJ9LHsiY29kZSI6IlBTIiwicGFpZFVwVG8iOiIyMDE5LTExLTI3In0seyJjb2RlIjoiR08iLCJwYWlkVXBUbyI6IjIwMTktMTEtMjcifSx7ImNvZGUiOiJETSIsInBhaWRVcFRvIjoiMjAxOS0xMS0yNyJ9LHsiY29kZSI6IkNMIiwicGFpZFVwVG8iOiIyMDE5LTExLTI3In0seyJjb2RlIjoiUlMwIiwicGFpZFVwVG8iOiIyMDE5LTExLTI3In0seyJjb2RlIjoiUkMiLCJwYWlkVXBUbyI6IjIwMTktMTEtMjcifSx7ImNvZGUiOiJSRCIsInBhaWRVcFRvIjoiMjAxOS0xMS0yNyJ9LHsiY29kZSI6IlBDIiwicGFpZFVwVG8iOiIyMDE5LTExLTI3In0seyJjb2RlIjoiUk0iLCJwYWlkVXBUbyI6IjIwMTktMTEtMjcifSx7ImNvZGUiOiJXUyIsInBhaWRVcFRvIjoiMjAxOS0xMS0yNyJ9LHsiY29kZSI6IkRCIiwicGFpZFVwVG8iOiIyMDE5LTExLTI3In0seyJjb2RlIjoiREMiLCJwYWlkVXBUbyI6IjIwMTktMTEtMjcifSx7ImNvZGUiOiJSU1UiLCJwYWlkVXBUbyI6IjIwMTktMTEtMjcifV0sImhhc2giOiIxMTA3MzgwNy8wIiwiZ3JhY2VQZXJpb2REYXlzIjowLCJhdXRvUHJvbG9uZ2F0ZWQiOmZhbHNlLCJpc0F1dG9Qcm9sb25nYXRlZCI6ZmFsc2V9-rlH9JbPzbld/Oak51Co3HlhD6xgE7CsvbrLl6RCySuv2sw37KBfDPY1PT2lAEkW0MJkUtGtmSHVp/jk8F4RuHGvouJFMdCtnsKdnebdjaPsKpjgxoreWlOu8VCnrGh+3mmuswzGKouw52ffxbmsvGFa5ybvWv7mj9gqSY0V20OcgCmIT3dlj4f9xc0iA9o7z1pvedVzcOrxVKvLmmqRp+4zMfNuMQB5sraznW9BxslR1sWN0pUOu9/J+k7IH6Wld/oGv5dtHYFqk5RinSBMTjYlZ+X4AV5f83Z4SkzbHqy2fGC6S3NoifaVFxRSP5TQDe6hsg7Fzic6k1iWAup89pg==-MIIElTCCAn2gAwIBAgIBCTANBgkqhkiG9w0BAQsFADAYMRYwFAYDVQQDDA1KZXRQcm9maWxlIENBMB4XDTE4MTEwMTEyMjk0NloXDTIwMTEwMjEyMjk0NlowaDELMAkGA1UEBhMCQ1oxDjAMBgNVBAgMBU51c2xlMQ8wDQYDVQQHDAZQcmFndWUxGTAXBgNVBAoMEEpldEJyYWlucyBzLnIuby4xHTAbBgNVBAMMFHByb2QzeS1mcm9tLTIwMTgxMTAxMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxcQkq+zdxlR2mmRYBPzGbUNdMN6OaXiXzxIWtMEkrJMO/5oUfQJbLLuMSMK0QHFmaI37WShyxZcfRCidwXjot4zmNBKnlyHodDij/78TmVqFl8nOeD5+07B8VEaIu7c3E1N+e1doC6wht4I4+IEmtsPAdoaj5WCQVQbrI8KeT8M9VcBIWX7fD0fhexfg3ZRt0xqwMcXGNp3DdJHiO0rCdU+Itv7EmtnSVq9jBG1usMSFvMowR25mju2JcPFp1+I4ZI+FqgR8gyG8oiNDyNEoAbsR3lOpI7grUYSvkB/xVy/VoklPCK2h0f0GJxFjnye8NT1PAywoyl7RmiAVRE/EKwIDAQABo4GZMIGWMAkGA1UdEwQCMAAwHQYDVR0OBBYEFGEpG9oZGcfLMGNBkY7SgHiMGgTcMEgGA1UdIwRBMD+AFKOetkhnQhI2Qb1t4Lm0oFKLl/GzoRykGjAYMRYwFAYDVQQDDA1KZXRQcm9maWxlIENBggkA0myxg7KDeeEwEwYDVR0lBAwwCgYIKwYBBQUHAwEwCwYDVR0PBAQDAgWgMA0GCSqGSIb3DQEBCwUAA4ICAQAF8uc+YJOHHwOFcPzmbjcxNDuGoOUIP+2h1R75Lecswb7ru2LWWSUMtXVKQzChLNPn/72W0k+oI056tgiwuG7M49LXp4zQVlQnFmWU1wwGvVhq5R63Rpjx1zjGUhcXgayu7+9zMUW596Lbomsg8qVve6euqsrFicYkIIuUu4zYPndJwfe0YkS5nY72SHnNdbPhEnN8wcB2Kz+OIG0lih3yz5EqFhld03bGp222ZQCIghCTVL6QBNadGsiN/lWLl4JdR3lJkZzlpFdiHijoVRdWeSWqM4y0t23c92HXKrgppoSV18XMxrWVdoSM3nuMHwxGhFyde05OdDtLpCv+jlWf5REAHHA201pAU6bJSZINyHDUTB+Beo28rRXSwSh3OUIvYwKNVeoBY+KwOJ7WnuTCUq1meE6GkKc4D/cXmgpOyW/1SmBz3XjVIi/zprZ0zf3qH5mkphtg6ksjKgKjmx1cXfZAAX6wcDBNaCL+Ortep1Dh8xDUbqbBVNBL4jbiL3i3xsfNiyJgaZ5sX7i8tmStEpLbPwvHcByuf59qJhV/bZOl8KqJBETCDJcY6O2aqhTUy+9x93ThKs1GKrRPePrWPluud7ttlgtRveit/pcBrnQcXOl1rHq7ByB8CFAxNotRUYL9IF5n3wJOgkPojMy6jetQA5Ogc8Sm7RG6vg1yow==</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://o2jteam.github.io/post/ol/ch01/index/" data-id="cjxy38kf00006lkuu8qvpi7ni"
+        class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ol4-ol5/">ol4/ol5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openlayers/">openlayers</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webGis/">webGis</a></li></ul>
+
+      <!-- 要添加的内容 -->
+      
+      <div>
+    <ul class="post-copyright">
+        <li class="post-copyright-author">
+            <strong>作者:  </strong>o2jteam</a>
+        </li>
+        <li class="post-copyright-link">
+            <strong>文章链接:  </strong>
+            <a href="/post/ol/ch01/index/" target="_blank"
+                title="初识OpenLayers 5">https://o2jteam.github.io/post/ol/ch01/index/</a>
+        </li>
+        <li class="post-copyright-license">
+            <strong>版权声明:  </strong>
+            本网站所有文章除特别声明外,均采用 <a rel="license"
+                href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank"
+                title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            许可协议。转载请注明出处!
+        </li>
+    </ul>
+    <div>
+      
+    </footer>
+
+  </div>
+
+  
+  
+  <nav class="article-nav">
+    
+    
+      <a href="/post/ol/ch02/index/" class="article-nav-link">
+        <strong class="article-nav-caption">Olde posts</strong>
+        <div class="article-nav-title">学会使用ol5 API</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+  
+  
+
+</article>
+</section>
+          <footer class="footer">
+  
+  <div class="outer">
+    <!-- <div class="float-right">
+      <ul class="list-inline">
+  
+    <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+</ul>
+    </div> -->
+    <ul class="list-inline">
+      <li>&copy; 2019 o2jteam</li>
+      <li>  <a href="https://o2jteam.github.io/" target="_blank">obj前端团队</a> 提供技术支持</li>
+    </ul>
+  </div>
+</footer>
+
+      </div>
+    </main>
+    <div id="landlord">
+      <div class="message" style="opacity:0"></div>
+      <canvas id="live2d" width="500" height="560" class="live2d"></canvas>
+      <input name="live_talk" id="live_talk" value="1" type="hidden" />
+      <div class="live_ico_box">
+        <div class="live_ico_item type_info" id="menubtn"></div>
+        <!-- <div class="live_ico_item type_info" id="showInfoBtn"></div> -->
+        <div class="live_ico_item type_talk" id="showTalkBtn"></div>
+        <div class="live_ico_item type_music" id="musicButton"></div>
+        <div class="live_ico_item type_youdu" id="youduButton"></div>
+        <div class="live_ico_item type_quit" id="hideButton"></div>
+        <input name="live_statu_val" id="live_statu_val" value="0" type="hidden" />
+        <audio src="" style="display:none;" id="live2d_bgm" data-bgm="0" preload="none"></audio>
+        <input name="live2dBGM" value="https://www.itsolotime.com/music/qnxt.mp3" type="hidden">
+        <input id="duType" value="douqilai,l2d_caihong" type="hidden">
+      </div>
+    </div>
+    <aside class="sidebar">
+      <nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="https://avatars2.githubusercontent.com/u/50328824?s=200&v=4" alt="obj前端团队"></a>
+    <p class="o2jname">
+      <a href="/">o2jteam</a>
+    </p>
+    <!-- <p>生活虽不易，未来亦可期。</p> -->
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">首页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">专题</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/gallery">设计</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="Search">
+        <i class="fe fe-search"></i>
+        Search
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+    <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="fe fe-feed"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+
+<div class="search-form-wrap">
+    <div class="local-search local-search-plugin">
+    <div class="o2jsearch">
+      <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+      <div id="local-search-result" class="local-search-result"></div>
+    </div>
+  </div>
+</div>
+    </aside>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/lazyload.min.js"></script>
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+<script src="/js/search.js"></script>
+
+<script src="/js/layer.js"></script>
+<script src="/js/live2d.js"></script>
+<script src="/js/jquery.nicescroll.min.js"></script>
+<script src="/js/message.js"></script>
+<script src="/js/ocean.js"></script>
+  </div>
+
+</body>
+
+</html>

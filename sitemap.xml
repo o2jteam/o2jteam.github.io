@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://o2jteam.github.io/gallery/index.html</loc>
+    <loc>https://o2jteam.github.io/post/ol/ch02/index/</loc>
     
-    <lastmod>2019-07-10T02:29:01.678Z</lastmod>
+    <lastmod>2019-07-11T03:24:08.226Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://o2jteam.github.io/post/hello-world/</loc>
+    <loc>https://o2jteam.github.io/post/ol/ch01/index/</loc>
     
-    <lastmod>2019-07-08T06:35:37.677Z</lastmod>
+    <lastmod>2019-07-11T03:23:52.083Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://o2jteam.github.io/gallery/index.html</loc>
+    
+    <lastmod>2019-07-10T02:29:01.678Z</lastmod>
     
   </url>
   
