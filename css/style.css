@@ -3910,6 +3910,38 @@ pre .javascript .function {
 #menubtn {
   display: none;
 }
+.categorie-item a {
+  color: #000;
+  font-weight: bold;
+}
+.categorie-cover {
+  padidng: 0;
+  margin: 0;
+}
+.categorie-cover img {
+  width: 15rem;
+  height: 20rem;
+}
+.photo-footer {
+  padding: 0.5rem;
+  color: #000;
+  font-weight: bold;
+}
+.photo-footer .photo-avthor {
+  padding-right: 0.5rem;
+}
+.photo-footer .photo-avthor i {
+  font-size: 1.6rem;
+  padding-right: 0.5rem;
+  vertical-align: middle;
+}
+.photo-footer .photo-down {
+  font-size: 1.4rem;
+}
+.photo-footer .photo-down a {
+  color: #000;
+  font-weight: bold;
+}
 @media (max-width: 1199px) {
   #menubtn {
     display: block;
@@ -3921,6 +3953,8 @@ width
   }
   .sidebar {
     background: transparent;
+    width: 35rem;
+    left: -35rem;
   }
   body {
     position: fixed;
@@ -3928,6 +3962,9 @@ width
   .content {
     height: 100%;
     width: 100vw;
+  }
+  .content.on {
+    transform: translate3d(35rem, 0px, 0px) scale3d(0.86, 0.86, 1);
   }
   .o2jwrap {
     height: 100%;
